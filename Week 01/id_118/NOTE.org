@@ -1,4 +1,0 @@
-#+TITLE: Notes for Week1
-* Array
-* Linked List
-* Skip List
