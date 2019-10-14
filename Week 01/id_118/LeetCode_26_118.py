@@ -1,57 +1,41 @@
-# Given a sorted array nums, remove the duplicates in-place such that each
-# element appear only once and return the new length.
-#
-# Do not allocate extra space for another array, you must do this by
-# modifying the input array in-place with O(1) extra memory.
-#
-# Example 1:
-#
-#
-# Given nums = [1,1,2],
-#
-# Your function should return length = 2, with the first two elements of nums
-# being 1 and 2 respectively.
-#
-# It doesn't matter what you leave beyond the returned length.
-#
-# Example 2:
-#
-#
-# Given nums = [0,0,1,1,1,2,2,3,3,4],
-#
-# Your function should return length = 5, with the first five elements of
-# nums being modified to 0, 1, 2, 3, and 4 respectively.
-#
-# It doesn't matter what values are set beyond the returned length.
-#
-#
-# Clarification:
-#
-# Confused why the returned value is an integer but your answer is an array?
-#
-# Note that the input array is passed in by reference, which means
-# modification to the input array will be known to the caller as well.
-#
-# Internally you can think of this:
-#
-#
-# // nums is passed in by reference. (i.e., without making a copy)
-# int len = removeDuplicates(nums);
-#
-# // any modification to nums in your function would be known by the caller.
-# // using the length returned by your function, it prints the first len
-# elements. for (int i = 0; i < len; i++) {     print(nums[i]); } Related
-# Topics Array Two Pointers
-
 # import type hint, otherwise IDE will report error
 from typing import List
 
 
-# leetcode submit region begin(Prohibit modification and deletion)
-class Solution:
+class Solution1:
+    """
+    Solution 1: below is the most intuitive solution
+    Use del function to do in-place deletion
+    However this solution is not optimal as del itself has O(n) time complexity
+    Also remember to check edge cases, empty list and list with only 1 element
+    """
+
+    def removeDuplicates(self, nums: List[int]) -> int:
+        # handle the edge cases first
+        # if nums is empty
+        if len(nums) == 0:
+            return 0
+        # if nums only has 1 element
+        if len(nums) == 1:
+            return 1
+        i = 1
+        while i < len(nums):
+            if nums[i - 1] == nums[i]:
+                del nums[i]
+            else:
+                i += 1
+        return i
+
+
+class Solution2:
+    """
+    Solution 2: use a pointer to check if the next element is duplicated in the existing
+    list
+    """
+
     def removeDuplicates(self, nums: List[int]) -> int:
         # set a pointer _len
-        # its index position is the len of new nums
+        # its final index position is the len of new nums
         # nums[_len] serves as confirmation to accept unique value
         _len = 1
         # if nums is empty
@@ -69,9 +53,11 @@ class Solution:
         return _len
 
 
-# leetcode submit region end(Prohibit modification and deletion)
-
 if __name__ == '__main__':
     arr = [1, 1, 2]
-    sol = Solution()
-    print(sol.removeDuplicates(arr))
+
+    sol1 = Solution1()
+    print(sol1.removeDuplicates(arr))
+
+    sol2 = Solution2()
+    print(sol2.removeDuplicates(arr))
