@@ -5,20 +5,41 @@
 				k = k % len;
 			}
 
-			swap(nums, 0, len - k - 1);
-			swap(nums, len - k, len - 1);
-			swap(nums, 0, len - 1);
-		}
-
-		private void swap(int[] nums, int start, int end) {
-
-			while (start < end) {
-				int temp = nums[start];
-				nums[start] = nums[end];
-				nums[end] = temp;
-
-				start++;
-				end--;
+			if (k == 0) {
+				return;
 			}
+
+			// 移位计数
+			int count = 0;
+			// 每一轮起始
+			int start = 0;
+
+			// 当前位置
+			int current = start;
+			// 当前位置的值
+			int currentVal = nums[current];
+
+			do {
+				// 计算移位目标
+				int target = (current + k) % len;
+
+				// 将currentVal放入目标位置，目标原值存入temp
+				int temp = nums[target];
+				nums[target] = currentVal;
+
+				// 移位计数+1
+				count++;
+
+				current = target;
+				currentVal = temp;
+
+				// 如果回到起点，则start+1,开始下一轮
+				if (current == start) {
+					start++;
+					current = start;
+					currentVal = nums[current];
+				}
+
+			} while (count < len);// 所有元素都移动后终止
 		}
 	}

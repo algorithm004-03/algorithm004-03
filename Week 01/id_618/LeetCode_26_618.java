@@ -1,4 +1,4 @@
-c	lass Solution {
+	class Solution {
 		public int removeDuplicates(int[] nums) {
 			// 处理特殊情况
 			if (nums.length <= 1) {
