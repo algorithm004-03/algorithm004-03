@@ -1,30 +1,30 @@
 
 # Table of Contents
 
-1.  [Five Times Practice Schedule](#orgbafb6a9)
-    1.  [First: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-15 Tue&gt;</span></span>](#orgcd5eb3a)
-        1.  [Course Drills](#orgbe9dc14)
-        2.  [Assignment](#org06fa1e6)
-    2.  [Second: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-15 Tue&gt;</span></span>](#orga903553)
-    3.  [Third: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-16 Wed&gt;</span></span>](#orgf6aa5c4)
-    4.  [Fourth:<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-20 Sun&gt;</span></span>](#org91633aa)
-    5.  [Fifth: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-11 Mon&gt;</span></span>](#orga42e0d2)
-2.  [Good Solutions](#org32acb7d)
-    1.  [rotate an array](#orgf7afa8c)
+1.  [Five Times Practice Schedule](#org5e408f2)
+    1.  [First: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-15 Tue&gt;</span></span>](#org3f5c8af)
+        1.  [Course Drills](#org66b4604)
+        2.  [Assignment](#orgd7c9ff5)
+    2.  [Second: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-15 Tue&gt;</span></span>](#orgf8a28ad)
+    3.  [Third: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-16 Wed&gt;</span></span>](#org98abcf9)
+    4.  [Fourth:<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-20 Sun&gt;</span></span>](#org1859806)
+    5.  [Fifth: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-11 Mon&gt;</span></span>](#orgbbcd97e)
+2.  [Good Solutions](#org0754614)
+    1.  [rotate an array](#orgc1acc76)
 
 
 
-<a id="orgbafb6a9"></a>
+<a id="org5e408f2"></a>
 
 # Five Times Practice Schedule
 
 
-<a id="orgcd5eb3a"></a>
+<a id="org3f5c8af"></a>
 
 ## TODO First: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-15 Tue&gt;</span></span>
 
 
-<a id="orgbe9dc14"></a>
+<a id="org66b4604"></a>
 
 ### Course Drills
 
@@ -34,14 +34,14 @@
 -   [ ] <https://leetcode.com/problems/3sum/>
 
 
-<a id="org06fa1e6"></a>
+<a id="orgd7c9ff5"></a>
 
 ### Assignment
 
 -   [X] <https://leetcode.com/problems/remove-duplicates-from-sorted-array/>
 -   [X] <https://leetcode.com/problems/rotate-array/>
 -   [X] <https://leetcode.com/problems/merge-two-sorted-lists/>
--   [ ] <https://leetcode.com/problems/merge-sorted-array/>
+-   [X] <https://leetcode.com/problems/merge-sorted-array/>
 -   [ ] <https://leetcode.com/problems/two-sum/>
 -   [ ] <https://leetcode.com/problems/move-zeroes/>
 -   [ ] <https://leetcode.com/problems/plus-one/>
@@ -49,32 +49,32 @@
 -   [ ] <https://leetcode.com/problems/trapping-rain-water/>
 
 
-<a id="orga903553"></a>
+<a id="orgf8a28ad"></a>
 
 ## TODO Second: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-15 Tue&gt;</span></span>
 
 
-<a id="orgf6aa5c4"></a>
+<a id="org98abcf9"></a>
 
 ## TODO Third: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-16 Wed&gt;</span></span>
 
 
-<a id="org91633aa"></a>
+<a id="org1859806"></a>
 
 ## TODO Fourth:<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-10-20 Sun&gt;</span></span>
 
 
-<a id="orga42e0d2"></a>
+<a id="orgbbcd97e"></a>
 
 ## TODO Fifth: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-11 Mon&gt;</span></span>
 
 
-<a id="org32acb7d"></a>
+<a id="org0754614"></a>
 
 # Good Solutions
 
 
-<a id="orgf7afa8c"></a>
+<a id="orgc1acc76"></a>
 
 ## rotate an array
 
