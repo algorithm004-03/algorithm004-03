@@ -1,7 +1,7 @@
 from typing import List
 
 
-class Solution:
+class Solution1:
     """
     solution with 2 pointers
     the amount of water will always be
@@ -35,3 +35,9 @@ class Solution:
                     r_max = height[right]
                 right -= 1
         return water
+
+
+if __name__ == '__main__':
+    sol1 = Solution1()
+    l = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+    print(sol1.trap(l))
