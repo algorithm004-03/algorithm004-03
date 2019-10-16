@@ -10,7 +10,7 @@ class Solution1:
     Also remember to check edge cases, empty list and list with only 1 element
     """
 
-    def removeDuplicates(self, nums: List[int]) -> int:
+    def remove_duplicates(self, nums: List[int]) -> int:
         # handle the edge cases first
         # if nums is empty
         if len(nums) == 0:
@@ -33,7 +33,7 @@ class Solution2:
     list
     """
 
-    def removeDuplicates(self, nums: List[int]) -> int:
+    def remove_duplicates(self, nums: List[int]) -> int:
         # set a pointer _len
         # its final index position is the len of new nums
         # nums[_len] serves as confirmation to accept unique value
@@ -57,7 +57,7 @@ if __name__ == '__main__':
     arr = [1, 1, 2]
 
     sol1 = Solution1()
-    print(sol1.removeDuplicates(arr))
+    print(sol1.remove_duplicates(arr))
 
     sol2 = Solution2()
-    print(sol2.removeDuplicates(arr))
+    print(sol2.remove_duplicates(arr))
