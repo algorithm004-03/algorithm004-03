@@ -1,0 +1,49 @@
+package id_693;
+
+import java.util.*;
+
+/**
+ * @Desc 15. 三数之和  https://leetcode-cn.com/problems/3sum/
+ * @Auther 李雷(KyLin)
+ * @Date 2019/10/16
+ */
+public class LeetCode_15_693 {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        int len = nums.length;
+        int k, i, j, complement;
+        List<List<Integer>> result = new ArrayList<>();
+        for (k = 0; k < len - 2; k++) {
+            if (nums[k] > 0) break;
+            else if (k > 0 && nums[k] == nums[k - 1]) continue;//去重k
+            i = k + 1;
+            j = len - 1;
+            while (i < j) {
+                complement = nums[k] + nums[i] + nums[j];
+                if (i > k + 1 && nums[i] == nums[i - 1]) i++;//去重i
+                else if (j < len - 1 && nums[j] == nums[j + 1]) j--;//去重j
+                else if (complement < 0) i++;
+                else if (complement > 0) j--;
+                else {
+                    result.add(Arrays.asList(nums[k], nums[i], nums[j]));
+                    i++;
+                    j--;
+                }
+            }
+        }
+        return result;
+    }
+ /*
+ 1、对元素排序。(这是关键)
+ 2、k值 > 0 直接排除，并且加1 且去重复元素
+ 3、k > 0 且与之前元素相等，属于重复元素，去除
+ 4、s (i值+j值+k值)
+    4.1 s > 0 那么说明结果太大了。那么久把j下标上移，也就是j，同时也考虑去重
+    4.2 s < 0 那么说明结果太小了。那么久把i下标下移，也就是i，同时也考虑去重
+    4.3 s = 0 那么就是结果了，直接i下标下移，j下标上移，同时ij都需要考虑去重
+  */
+
+    public static void main(String[] args) {
+        System.out.println(new LeetCode_15_693().threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+    }
+}
