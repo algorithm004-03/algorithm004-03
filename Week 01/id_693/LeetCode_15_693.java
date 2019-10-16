@@ -21,23 +21,26 @@ public class LeetCode_15_693 {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         int len = nums.length;
-        int k, i, j, complement;
+        int k;
+        int i;
+        int j;
+        int complement;
         List<List<Integer>> result = new ArrayList<>();
         for (k = 0; k < len - 2; k++) {
             if (nums[k] > 0) break;
-            else if (k > 0 && nums[k] == nums[k - 1]) continue;//去重k
-            i = k + 1;
-            j = len - 1;
-            while (i < j) {
-                complement = nums[k] + nums[i] + nums[j];
-                if (i > k + 1 && nums[i] == nums[i - 1]) i++;//去重i
-                else if (j < len - 1 && nums[j] == nums[j + 1]) j--;//去重j
-                else if (complement < 0) i++;
-                else if (complement > 0) j--;
-                else {
-                    result.add(Arrays.asList(nums[k], nums[i], nums[j]));
-                    i++;
-                    j--;
+            if (k == 0 || nums[k] != nums[k - 1]) {
+                i = k + 1;
+                j = len - 1;
+                while (i < j) {
+                    complement = nums[k] + nums[i] + nums[j];
+                    if (complement == 0) {
+                        result.add(Arrays.asList(nums[k], nums[i], nums[j]));
+                        while (i < j && nums[i] == nums[i + 1]) i++;
+                        while (i < j && nums[j] == nums[j - 1]) j--;
+                        i++;
+                        j--;
+                    } else if (complement < 0) i++;
+                    else j--;
                 }
             }
         }
