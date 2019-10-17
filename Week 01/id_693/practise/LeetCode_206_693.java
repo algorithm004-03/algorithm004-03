@@ -1,4 +1,6 @@
-package id_693;
+package id_693.practise;
+
+import id_693.ListNode;
 
 /**
  * @Desc 206. 反转链表 https://leetcode-cn.com/problems/reverse-linked-list/submissions/

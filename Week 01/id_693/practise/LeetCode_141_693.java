@@ -1,4 +1,6 @@
-package id_693;
+package id_693.practise;
+
+import id_693.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;
