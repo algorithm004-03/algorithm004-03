@@ -27,13 +27,4 @@ public class LeetCode_21_693 {
         }
         return r.next;
     }
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 }
