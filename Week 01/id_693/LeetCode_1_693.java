@@ -30,7 +30,7 @@ public class LeetCode_1_693 {
      * 结果：0(n)
      */
 
-    //使用hash 2个 for   0(n)
+    //使用hash 2个 for    0(n)
     public int[] twoSum2(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>(nums.length);
         for (int i = 0; i < nums.length; i++) {
