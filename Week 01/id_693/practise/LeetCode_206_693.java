@@ -24,7 +24,7 @@ public class LeetCode_206_693 {
     //递归
     public ListNode reverseList2(ListNode head) {
         if (head == null || head.next == null) {
-            return null;
+            return head;
         }
         ListNode prev = reverseList2(head.next);
         head.next.next = head;
