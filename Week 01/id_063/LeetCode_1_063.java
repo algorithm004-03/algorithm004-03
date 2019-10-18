@@ -11,7 +11,7 @@ import java.util.Map;
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-         Map<Integer, Integer> val2idx = new HashMap<>();
+         Map<Integer, Integer> val2idx = new HashMap<>(nums.length + 1, 1);
 
          val2idx.put(nums[0], 0);
 

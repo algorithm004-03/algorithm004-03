@@ -13,7 +13,7 @@ using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> val2idx;
+        unordered_map<int, int> val2idx(nums.size());
 
         val2idx[nums[0]] = 0;
         for (int i = 1; i < nums.size(); i++) {
