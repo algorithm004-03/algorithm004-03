@@ -87,4 +87,134 @@ public class ReverseLinkedList {
 
         }
     }
+
+    /**
+     * 641. 设计循环双端队列
+     */
+    public static class MyCircularDeque {
+        /*
+        思路:
+        控制头尾指针, 两者之间的元素为队列中的数据
+         */
+
+        // 定义存储结构为 数组
+        private int[] data;
+        // 定义头指针
+        private int head;
+        // 定义尾指针
+        private int tail;
+        // 定义容量
+        private int capacity;
+        // 定义当前存储数据的量值
+        private int size;
+
+        /**
+         * 构造方法
+         *
+         * @param k 初始容量
+         */
+        public MyCircularDeque(int k) {
+            data = new int[k];
+            head = tail = -1;
+            capacity = k;
+            size = 0;
+        }
+
+
+        /**
+         * 头部插入
+         *
+         * @param value 值
+         * @return 是否成功
+         */
+        public boolean insertFront(int value) {
+            if (isFull()) return false; // 如果满仓, 返回失败
+            // 头部插入从数组右侧开始, 插入后head向左移动
+            head = (head - 1 + capacity) % capacity;
+            data[head] = value;
+            size++;
+            if (size == 1) { // 首次插入时, 头=尾
+                tail = head;
+            }
+            return true;
+        }
+
+        /**
+         * 尾部插入
+         *
+         * @param value 值
+         * @return 是否成功
+         */
+        public boolean insertLast(int value) {
+            if (isFull()) return false;
+            tail = (tail + 1) % capacity;
+            data[tail] = value;
+            size++;
+            if (size == 1) {
+                head = tail;
+            }
+            return true;
+        }
+
+        /**
+         * 从头部删除
+         *
+         * @return 是否成功
+         */
+        public boolean deleteFront() {
+            if (isEmpty()) return false;
+            head = (head + 1) % capacity;
+            size--;
+            return true;
+        }
+
+
+        /**
+         * 从尾部删除
+         *
+         * @return 是否成功
+         */
+        public boolean deleteLast() {
+            if (isEmpty()) return false;
+            tail = (tail - 1 + capacity) % capacity;
+            size--;
+            return true;
+        }
+
+        /**
+         * 查询头部元素
+         *
+         * @return 元素值
+         */
+        public int getFront() {
+            if (isEmpty()) return -1;
+            return data[head];
+        }
+
+        /**
+         * 查询尾部元素
+         *
+         * @return 元素值
+         */
+        public int getRear() {
+            if (isEmpty()) return -1;
+            return data[tail];
+        }
+
+        /**
+         * 是否为空
+         * @return
+         */
+        public boolean isEmpty() {
+            return size == 0;
+        }
+
+        /**
+         * 是否满仓
+         */
+        public boolean isFull() {
+            return size == capacity;
+        }
+
+    }
 }
