@@ -13,8 +13,8 @@
 2. 增/删时间复杂度为O(1)，但值得一提的是：linkedList仅在增加/删除确定位置下的结点时，时间复杂度为O(1)。因为链表不存在实际下标，若要在指定位置增加或删除某个元素时，必需先通过O(n)的遍历确定node位置再进行操作
 3. 优化：升维（空间换时间）————跳表
 4. LinkedList的工程应用：LRUCache（链表+HashMap，也可以是LinkedHashMap）
-关于LinkedList的总结：https://blog.csdn.net/weixin_43624024/article/details/102571442
-关于LRU：https://blog.csdn.net/weixin_43624024/article/details/102587005
+关于LinkedList的总结：https://blog.csdn.net/weixin_43624024/article/details/102571442 
+关于LRU的总结：https://blog.csdn.net/weixin_43624024/article/details/102587005
 
 ### 跳表特性：
 1. 在linkedList的基础上进行了优化，添加了索引指针
