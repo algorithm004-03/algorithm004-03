@@ -38,7 +38,7 @@
 1. peek() 返回栈顶元素
 2. pop() 删除并返回栈顶元素
 3. push(E e) 添加至栈顶
-源码分析：//TODO
+源码分析：https://blog.csdn.net/weixin_43624024/article/details/102635948
 
 
 ### 队列特性：
@@ -49,7 +49,7 @@
 2. remove 删除并返回
 3. element 返回
 4. 同样的offer，poll，peek也分别为添加，删除，返回。区别在于错误处理时，前者会抛出异常，后者返回special value
-源码分析：//TODO
+源码分析：https://blog.csdn.net/weixin_43624024/article/details/102637229
 
 ### 双端队列特性：
 在工程应用中一般不直接使用queue或stack，而是采用deque双端队列
@@ -60,7 +60,7 @@
 1. 插入操作O(1)
 2. 增加删除操作：O(logN)-按照元素的优先级取出
 3. 底层具体实现的数据结构较为多样和复杂，可以用heap/bst/avl/treap
-源码分析：//TODO
+
 
 
 
