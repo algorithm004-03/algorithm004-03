@@ -1,5 +1,6 @@
 package id_693;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class LeetCode_1_693 {
 
     //使用hash 2个 for    0(n)
     public int[] twoSum2(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>(nums.length);
+        Map<Integer, Integer> map = new HashMap<>(nums.length,1);
         for (int i = 0; i < nums.length; i++) {
             map.put(nums[i], i);
         }
@@ -47,7 +48,7 @@ public class LeetCode_1_693 {
 
     //再次优化
     public int[] twoSum3(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>(nums.length);
+        Map<Integer, Integer> map = new HashMap<>(nums.length,1);
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
             if (map.containsKey(complement)) {
@@ -60,7 +61,8 @@ public class LeetCode_1_693 {
     }
 
     public static void main(String[] args) {
-        new LeetCode_1_693().twoSum(new int[]{2, 7, 11, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}, 91);
-        new LeetCode_1_693().twoSum2(new int[]{2, 7, 11, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}, 91);
+        System.out.println(Arrays.toString(new LeetCode_1_693().twoSum3(new int[]{3,2,4}, 6)));;
+        System.out.println(Arrays.toString(new LeetCode_1_693().twoSum(new int[]{2, 7, 11, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}, 91)));
+        System.out.println(Arrays.toString(new LeetCode_1_693().twoSum2(new int[]{2, 7, 11, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}, 91)));
     }
 }

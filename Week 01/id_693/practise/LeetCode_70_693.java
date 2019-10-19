@@ -13,11 +13,8 @@ public class LeetCode_70_693 {
     public int climbStairs(int n) {
         Map<Integer, Integer> map = new HashMap<>();
 
-        if (n == 1) {
-            return 1;
-        }
-        if (n == 2) {
-            return 2;
+        if (n == 1 || n == 2) {
+            return n;
         }
         if (map.containsKey(n)) {
             return map.get(n);
