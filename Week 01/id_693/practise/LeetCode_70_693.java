@@ -11,7 +11,7 @@ import java.util.Map;
 public class LeetCode_70_693 {
     //使用map来优化递归的重复项
     public int climbStairs(int n) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>(n,1);
 
         if (n == 1 || n == 2) {
             return n;
