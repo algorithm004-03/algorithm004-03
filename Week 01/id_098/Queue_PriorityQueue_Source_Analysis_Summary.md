@@ -1,0 +1,58 @@
+Queue 源码分析
+
+Queue 是接口 继承自 java.util.Collection
+
+boolean add(E e):
+添加元素进队列，当成功添加元素则返回 true 否则返回 false
+当队列容量满时返回 IllegalStateException
+当待加入元素和队列元素不一致返回 ClassCastException
+当试图添加 Null 进入队列时返回 NullPointerException
+当因添加元素的属性导致该元素无法添加至队列时返回 IllegalArgumentException  （没想到例子）
+
+boolean offer(E e)：
+与add 的区别是当队列满的时候仅返回 false 而不会抛出 IllegalStateException 异常
+
+E remove()：
+移除头部元素, 当队列为空抛出 NoSuchElementException 异常
+
+E poll():
+移除头部元素, 当队列为空返回null
+
+E element()：
+返回头部元素，但不移除，当队列为空抛出 NoSuchElementException 异常
+
+E peek()：
+返回头部元素，但不移除，当队列为空则返回null
+
+关于时间复杂度，
+链表实现，则这些方法的时间复杂度都是O(1)的
+数组实现  如果非循环队列，添加元素为O(n) 循环队列为 O(1)
+
+Priority Queue 源码分析
+
+优先队列基于堆，优先级基于元素的自然顺序，或者通过Comparator指定的排序规则
+优先队列不允许插入null，或者无法排序的元素
+优先队列的头元素永远是最小的元素
+优先队列无届，但是可以指定大小
+spliterator()不能保证有序遍历，推荐使用Arrays.sort(pq.toArray())进行有序遍历
+入队，出队的时间复杂度为 O(logn) 删除和查找操作时间复杂度 O(n) 查头部元素和队列大小的时间复杂度为 O(1)
+
+
+第一周总结：
+
+本周学习了 数组，链表，跳表 以及 栈，队列，优先队列和双端队列
+
+数组和链表很好理解，并且实现不难，应用很广泛
+栈，队列，优先队列，概念很好理解 但是实现感觉有些困难
+双端队列，虽然是新的 java 推荐的栈的应用结构，但是直接利用双端队列的场景比较限定
+大部分是用双端队列来模拟栈及普通队列
+这周开始第一次刷算法题，感觉有些烧脑，特别是接雨水的题，容易陷入一些误区拔不出来
+而且当以水位这个概念去解这道题的时候，容易造成时间复杂度增长太快，从而超时
+
+ 
+
+
+
+
+
+
