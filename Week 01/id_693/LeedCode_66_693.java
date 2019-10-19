@@ -34,7 +34,7 @@ public class LeedCode_66_693 {
         boolean f = true;
         for (int i = digits.length - 1; i >= 0; i--) {
             if (digits[i] + 1 > 9) {
-                digits[i] = (digits[i] + 1) % 10;
+                digits[i] = digits[i] + 1 - 10;
             } else {
                 digits[i] += 1;
                 f = false;
