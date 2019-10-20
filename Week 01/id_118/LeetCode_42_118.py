@@ -37,7 +37,37 @@ class Solution1:
         return water
 
 
+class Solution2:
+    """
+    Solve the problem with 'dynamic programming'
+    Not sure if it's truly DP, but use two hash tables to store the
+    calculated results in the caches
+    """
+
+    def trap(self, height: List[int]) -> int:
+        # create two hash tables lmax and rmax to store the max val
+        res, lmax, rmax = 0, {}, {}
+        if len(height) == 0:
+            return res
+
+        lmax[0] = height[0]
+        for left in range(1, len(height)):
+            lmax[left] = max(lmax[left-1], height[left])
+
+        rmax[len(height)-1] = height[-1]
+        for right in range(len(height)-2, -1, -1):
+            rmax[right] = max(rmax[right+1], height[right])
+
+        for i in range(len(height)):
+            res += (min(lmax[i], rmax[i]) - height[i])
+
+        return res
+
+
 if __name__ == '__main__':
     sol1 = Solution1()
     l = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
     print(sol1.trap(l))
+
+    sol2 = Solution2()
+    print(sol2.trap(l))
