@@ -63,9 +63,9 @@
        + the counts of each unique letters are the same
        + use dictionary with key is the letter, value is the count
 
-**** Code
+**** Code 1
 
- #+BEGIN_SRC ipython :session :exports both :results output org
+ #+BEGIN_SRC python :session :exports both :results output org
 class Solution:
     def isAnagram(self, s:str, t: str) -> bool:
         s_d, t_d = {}, {}
