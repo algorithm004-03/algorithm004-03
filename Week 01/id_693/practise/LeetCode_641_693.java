@@ -1,11 +1,11 @@
 package id_693.practise;
 
 /**
- * @Desc
+ * @Desc    641. 设计循环双端队列   https://leetcode-cn.com/problems/design-circular-deque/
  * @Auther 李雷(KyLin)
  * @Date 2019/10/20
  */
-public class MyCircularDeque {
+public class LeetCode_641_693 {
     int front;
     int rear;
     int capacity;
@@ -13,7 +13,7 @@ public class MyCircularDeque {
     int[] elements;
 
     /** Initialize your data structure here. Set the size of the deque to be k. */
-    public MyCircularDeque(int k) {
+    public LeetCode_641_693(int k) {
         this.elements = new int[k];
         this.front = 0;
         this.rear = 0;
@@ -85,8 +85,8 @@ public class MyCircularDeque {
 }
 
 /**
- * Your MyCircularDeque object will be instantiated and called as such:
- * MyCircularDeque obj = new MyCircularDeque(k);
+ * Your LeetCode_641_693 object will be instantiated and called as such:
+ * LeetCode_641_693 obj = new LeetCode_641_693(k);
  * boolean param_1 = obj.insertFront(value);
  * boolean param_2 = obj.insertLast(value);
  * boolean param_3 = obj.deleteFront();
