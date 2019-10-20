@@ -1,6 +1,8 @@
 package id_693.practise;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 /**
  * @Desc 239. 滑动窗口最大值    https://leetcode-cn.com/problems/sliding-window-maximum/
@@ -14,7 +16,7 @@ public class LeetCode_239_693 {
     // 所以 k 是 大于等于数组，且k 在数组不为null的时候会是大于等于1
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums.length == 0) {
-            return new int[]{};
+            return new int[0];
         }
         int[] resule = new int[nums.length - k + 1];
         for (int i = 0; i < resule.length; i++) {
@@ -32,7 +34,7 @@ public class LeetCode_239_693 {
     //对第一个进行代码优化
     public int[] maxSlidingWindow2(int[] nums, int k) {
         if (nums.length == 0) {
-            return new int[]{};
+            return new int[0];
         }
         int[] resule = new int[nums.length - k + 1];
         for (int i = 0; i < resule.length; i++) {
@@ -45,8 +47,32 @@ public class LeetCode_239_693 {
         return resule;
     }
 
-    //使用双端队列试试 达到 O(n log(k))
-
+    //使用双端队列试试 达到 O(n log(k))   参考国际站，利用了双端队列的两头可取值的特点
+    public int[] maxSlidingWindow3(int[] nums, int k) {
+        if (nums == null || k == 0) {
+            return new int[0];
+        }
+        int[] result = new int[nums.length - k + 1];
+        int ri = 0;
+        Deque<Integer> deque = new ArrayDeque<>(k);
+        for (int i = 0; i < nums.length; i++) {
+            //循环删除超出左边界的，并移除
+            while (!deque.isEmpty() && deque.peek() < i - k + 1) {
+                deque.pop();
+            }
+            //循环检查 最后的元素小于当前，则删除
+            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+                deque.pollLast();
+            }
+            //添加
+            deque.offer(i);
+            //当数组元素检索到可 k - 1 则可以开始返回数组元素赋值了。
+            if (i >= k - 1) {
+                result[ri++] = nums[deque.peek()];
+            }
+        }
+        return result;
+    }
 
     //网上效率最高的 0(n)  采用的动态规划
     //如果每移动一次就去遍历窗口的值，这样时间复杂度是O（n*k）
@@ -87,8 +113,8 @@ public class LeetCode_239_693 {
 //        System.out.println(Arrays.toString(new LeetCode_239_693().maxSlidingWindow(new int[]{1, 3}, 3)));
 //        System.out.println(Arrays.toString(new LeetCode_239_693().maxSlidingWindow(new int[]{1, 3}, 1)));
 //        System.out.println(Arrays.toString(new LeetCode_239_693().maxSlidingWindow(new int[]{1}, 1)));
-//        System.out.println(Arrays.toString(new LeetCode_239_693().maxSlidingWindow(new int[]{}, 0)));
-//        System.out.println(Arrays.toString(new LeetCode_239_693().maxSlidingWindow(new int[]{}, 2)));
+//        System.out.println(Arrays.toString(new LeetCode_239_693().maxSlidingWindow(new int[0], 0)));
+//        System.out.println(Arrays.toString(new LeetCode_239_693().maxSlidingWindow(new int[0], 2)));
         System.out.println(Arrays.toString(new LeetCode_239_693().maxSlidingWindow(new int[]{1}, 2)));
     }
 }
