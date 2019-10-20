@@ -1,4 +1,4 @@
-//128 数组旋转
+//189 数组旋转
 
 class Solution {
 	//1. 暴力解法
@@ -10,10 +10,13 @@ class Solution {
 		if (k == 0) return;
 		//优化：省去多余的重复旋转
 		k = k%nums.length;
-        for(int i =  0;i< k ;i++) {
-            int temp = nums[j];
-            nums[j] = pre;
-            pre = temp;
+        for (int i =  0;i< k ;i++) {
+            int prev = nums[nums.length-1];
+            for (int j = 0;j<nums.length;j++) {
+                int temp = nums[j];
+                nums[j] = prev;
+                prev = temp;
+            }
         }
     }
 	
