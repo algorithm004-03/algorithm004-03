@@ -7,6 +7,8 @@ import "sort"
  */
 
 // @lc code=start
+package leetCode
+
 func threeSum(nums []int) [][]int {
 	ret := make([][]int, 0, 10)
 

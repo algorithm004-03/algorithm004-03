@@ -5,6 +5,8 @@
  */
 
 // @lc code=start
+package leetCode
+
 func moveZeroes(nums []int) {
 	lastIndex := 0
 	for index, value := range nums {

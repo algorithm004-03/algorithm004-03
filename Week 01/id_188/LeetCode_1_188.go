@@ -5,6 +5,8 @@
  */
 
 // @lc code=start
+package leetCode
+
 func twoSum(nums []int, target int) []int {
 	ret := make([]int, 0, 2)
 

@@ -5,6 +5,8 @@
  */
 
 // @lc code=start
+package leetCode
+
 func climbStairs(n int) int {
 	if n < 3 {
 		return n
