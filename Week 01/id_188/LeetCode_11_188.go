@@ -5,8 +5,11 @@
  */
 
 // @lc code=start
+<<<<<<< HEAD
 package leetCode
 
+=======
+>>>>>>> b3d0e63b69b69f1a19d98744e68907bc93d2ad01
 func maxArea(height []int) int {
 	var (
 		maxCapacity = 0
