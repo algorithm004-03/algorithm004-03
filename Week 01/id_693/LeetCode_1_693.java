@@ -19,7 +19,7 @@ public class LeetCode_1_693 {
                 }
             }
         }
-        return new int[]{};
+        return new int[0];
     }
 
     /**
@@ -43,7 +43,7 @@ public class LeetCode_1_693 {
                 return new int[]{i, map.get(complement)};
             }
         }
-        return new int[]{};
+        return new int[0];
     }
 
     //再次优化
@@ -57,7 +57,7 @@ public class LeetCode_1_693 {
             }
             map.put(nums[i], i);
         }
-        return new int[]{};
+        return new int[0];
     }
 
     public static void main(String[] args) {

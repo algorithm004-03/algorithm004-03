@@ -21,7 +21,7 @@ public class LeetCode_26_693 {
     }
 
     public static void main(String[] args) {
-        new LeetCode_26_693().removeDuplicates(new int[]{});
+        new LeetCode_26_693().removeDuplicates(new int[0]);
         new LeetCode_26_693().removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4});
     }
 }
