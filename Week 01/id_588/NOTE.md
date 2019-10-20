@@ -23,15 +23,3 @@
         System.out.println(deque);
 ```
 
-## Queue源码分析
-
-java里面Queue是interface, 继承Collection、Iterable接口
-
-|Throws exception|	Returns special value|
-| ---| ---|
-|add(e)	| offer(e)|
-|remove()|	poll() |
-|element()|	peek()|
-
-
-## Priority Queue源码分析
