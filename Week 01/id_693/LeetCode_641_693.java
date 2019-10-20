@@ -1,4 +1,4 @@
-package id_693.practise;
+package id_693;
 
 /**
  * @Desc    641. 设计循环双端队列   https://leetcode-cn.com/problems/design-circular-deque/
