@@ -1,9 +1,0 @@
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
-*.mp4
-.idea/*
-*.iml
-out/*
