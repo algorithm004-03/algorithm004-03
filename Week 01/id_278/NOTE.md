@@ -31,3 +31,8 @@
 * O(logn) for insert and delete, 'cause need to update index
 * in reality, it might not be perfect alignments due to element insertion and deletion
 * Space O(n)
+
+## Leetccode
+
+* five times
+* keep functionally independent util code sections in mind, by repetitive practice
