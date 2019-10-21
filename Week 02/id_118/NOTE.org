@@ -118,3 +118,48 @@ False
 
 *** LeetCode 2 Two Sum
 
+* Tree, Graph, Binary Tree, BST
+
+** 2-D Data Structure
+   - The biggest issue with linear data structure is its lookup performance. Time complexity is usually O(n)
+   - The key to improve the speed is to create an additional dimension
+   - The most common 2-D data structures are Tree and Graph
+
+** Tree
+
+*** Gist
+    - When a Linked List has multiple next pointers => it becomes a Tree
+    - Representation
+      [[./assets/binary_tree.jpg]]
+    - Key elements
+      + Root
+      + Sub-tree
+      + Parent
+      + Child: left, right (for Binary Tree)
+      + Leaf: node without child
+      + Siblings
+
+*** Binary Tree
+
+    - The most common trees are Binary Trees
+    - A binary tree only has 2 children: left and right
+
+*** Code
+
+**** Python
+#+begin_src python
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left, self.right = None, None
+#+end_src
+
+*** Traversal
+    - One of the most important Tree operations is traversal
+
+** Graph
+
+*** Gist
+    - The biggest difference between a Tree and a Graph is the Tree doesn't circle backwards
+      + A Linked List is a special type of Tree
+      + Tree is a Graph without loops
