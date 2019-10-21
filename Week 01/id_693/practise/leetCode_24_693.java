@@ -34,8 +34,8 @@ public class leetCode_24_693 {
             ListNode temp1 =result.next;//缓存第一个节点的地址 1
             ListNode temp2 =result.next.next.next;//缓存下一个头节点的地址 3
 
-            result.next = result.next.next; //把第二个节点赋予给第一个节点。
-            result.next.next = temp1;//原来的第一个节点放到原来的第二个节点上
+            result.next = result.next.next; //把第二个节点转变为第一个节点。
+            result.next.next = temp1;//原来的第一个节点转变为第二个节点
             temp1.next=temp2;//把原来第三各节点放在temp1下面(temp现在时第二个节点)
             result = temp1;
         }
@@ -43,26 +43,7 @@ public class leetCode_24_693 {
     }
 
     public static void main(String[] args) {
-        ListNode a = new ListNode(1);
-        a.next = new ListNode(2);
-        a.next.next = new ListNode(3);
-        a.next.next.next = new ListNode(4);
-    new leetCode_24_693().swapPairs2(a);
-        ListNode b = a;
-        for (int i = 0; i < 4; i++) {
-            System.out.print(b.val + "   ");
-            b = b.next;
-        }
-        System.out.println();
 
-        ListNode c = a;
-        ListNode temp = c.next;
-        c.next = c.next.next;
-        temp.next = c;
-        for (int i = 0; i < 4; i++) {
-            System.out.print(temp.val + "   ");
-            temp = temp.next;
-        }
-        System.out.println();
+
     }
 }
