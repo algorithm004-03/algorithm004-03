@@ -19,7 +19,7 @@ public class LeetCode_66_693 {
         if (f == 1) {
             int[] r = new int[digits.length + 1];
             r[0] = 1;
-            System.arraycopy(digits, 0, r, 1, r.length - 1);
+            System.arraycopy(digits,0,r,1,r.length - 1);
             return r;
         }
         return digits;
@@ -44,18 +44,36 @@ public class LeetCode_66_693 {
         if (f) {
             int[] r = new int[digits.length + 1];
             r[0] = 1;
-            System.arraycopy(digits, 0, r, 1, r.length - 1);
+            System.arraycopy(digits,0,r,1,r.length - 1);
             return r;
         }
         return digits;
     }
 
+    //根据效率最高的代码再次进行优化，
+    //思路：直接修改digits[i] 的值，如果不等于0  说明没有超出，则直接return，否则继续改变
+    //      后面的新建数组的思路很巧妙，
+    //          因为到了最后一个就代表，数组的值全是9的情况下才会出现，那么说明结果只需要在数组头增加一个1  后面全是0，
+    //          利用数组的默认0来实现，666
+    public int[] plusOne3(int[] digits) {
+        boolean is = true;
+        for (int i = digits.length - 1; i >= 0; i--) {
+            digits[i] = (digits[i] + 1) % 10;
+            if (digits[i] != 0) {
+                return digits;
+            }
+        }
+        digits = new int[digits.length + 1];
+        digits[0] = 1;
+        return digits;
+    }
+
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new LeetCode_66_693().plusOne2(new int[]{1, 2, 3})));
-        System.out.println(Arrays.toString(new LeetCode_66_693().plusOne2(new int[]{1, 2, 9})));
-        System.out.println(Arrays.toString(new LeetCode_66_693().plusOne2(new int[]{1, 9, 9})));
-        System.out.println(Arrays.toString(new LeetCode_66_693().plusOne2(new int[]{9, 9, 9})));
-        System.out.println(Arrays.toString(new LeetCode_66_693().plusOne2(new int[]{9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9})));
+        System.out.println(Arrays.toString(new LeetCode_66_693().plusOne2(new int[]{1,2,3})));
+        System.out.println(Arrays.toString(new LeetCode_66_693().plusOne2(new int[]{1,2,9})));
+        System.out.println(Arrays.toString(new LeetCode_66_693().plusOne2(new int[]{1,9,9})));
+        System.out.println(Arrays.toString(new LeetCode_66_693().plusOne2(new int[]{9,9,9})));
+        System.out.println(Arrays.toString(new LeetCode_66_693().plusOne2(new int[]{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9})));
     }
 }
 
