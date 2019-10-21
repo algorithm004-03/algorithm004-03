@@ -19,6 +19,6 @@ public class LeetCode_1_693 {
             }
             map.put(nums[i],i);
         }
-        return new int[1];
+        return new int[0];
     }
 }

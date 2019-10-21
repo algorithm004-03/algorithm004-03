@@ -9,7 +9,7 @@ import java.util.Map;
  * @Auther 李雷(KyLin)
  * @Date 2019/10/16
  */
-public class LeetCode_1_693 {
+public class LeetCode_1_693_1 {
     //暴力破解，直接双层循环   时间复杂度   0(n^2)
     public int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length - 1; ++i) {
@@ -61,8 +61,8 @@ public class LeetCode_1_693 {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new LeetCode_1_693().twoSum3(new int[]{3,2,4}, 6)));;
-        System.out.println(Arrays.toString(new LeetCode_1_693().twoSum(new int[]{2, 7, 11, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}, 91)));
-        System.out.println(Arrays.toString(new LeetCode_1_693().twoSum2(new int[]{2, 7, 11, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}, 91)));
+        System.out.println(Arrays.toString(new LeetCode_1_693_1().twoSum3(new int[]{3,2,4}, 6)));;
+        System.out.println(Arrays.toString(new LeetCode_1_693_1().twoSum(new int[]{2, 7, 11, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}, 91)));
+        System.out.println(Arrays.toString(new LeetCode_1_693_1().twoSum2(new int[]{2, 7, 11, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}, 91)));
     }
 }
