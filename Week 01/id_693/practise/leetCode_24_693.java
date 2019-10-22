@@ -2,10 +2,6 @@ package id_693.practise;
 
 import id_693.ListNode;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 /**
  * @Author 李雷（KyLin）
  * @Desc 24. 两两交换链表中的节点  https://leetcode-cn.com/problems/swap-nodes-in-pairs/

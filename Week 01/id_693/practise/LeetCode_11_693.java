@@ -1,8 +1,5 @@
 package id_693.practise;
 
-import java.util.Arrays;
-import java.util.Collections;
-
 /**
  * @Desc 11. 盛最多水的容器 https://leetcode-cn.com/problems/container-with-most-water/
  * @Auther 李雷(KyLin)
