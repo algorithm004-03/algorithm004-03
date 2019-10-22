@@ -14,14 +14,14 @@ public class LeetCode_42_693 {
             int rightMax = 0;
             //以当前为起点，找出左边的最大值
             for (int j = i; j >= 0; j--) {
-                leftMax = Math.max(leftMax, height[j]);
+                leftMax = Math.max(leftMax,height[j]);
             }
             //以当前为起点找出右边的最大值
             for (int j = i; j < height.length; j++) {
-                rightMax = Math.max(rightMax, height[j]);
+                rightMax = Math.max(rightMax,height[j]);
             }
             //获得左右两边最大值中的最小值 减去自身即可（如果自身是最大值，那么就会是自身-自身）
-            max += Math.min(leftMax, rightMax) - height[i];
+            max += Math.min(leftMax,rightMax) - height[i];
         }
         return max;
     }
@@ -34,13 +34,13 @@ public class LeetCode_42_693 {
         int[] leftMax = new int[height.length];//保存左边最大的
         int[] rightMax = new int[height.length];//保存右边最大的
         for (int i = 0; i < height.length; i++) {
-            left = Math.max(left, height[i]);
+            left = Math.max(left,height[i]);
             leftMax[i] = left;
-            right = Math.max(right, height[height.length - i - 1]);
+            right = Math.max(right,height[height.length - i - 1]);
             rightMax[height.length - i - 1] = right;
         }
         for (int i = 0; i < height.length; i++) {
-            max += Math.min(leftMax[i], rightMax[i]) - height[i];
+            max += Math.min(leftMax[i],rightMax[i]) - height[i];
         }
         return max;
     }
@@ -52,12 +52,12 @@ public class LeetCode_42_693 {
         int right = 0;
         int[] rightMax = new int[height.length];//保存右边最大的
         for (int i = 0; i < height.length; i++) {
-            right = Math.max(right, height[height.length - i - 1]);
+            right = Math.max(right,height[height.length - i - 1]);
             rightMax[height.length - i - 1] = right;
         }
         for (int i = 0; i < height.length; i++) {
-            left = Math.max(left, height[i]);
-            max += Math.min(left, rightMax[i]) - height[i];
+            left = Math.max(left,height[i]);
+            max += Math.min(left,rightMax[i]) - height[i];
         }
         return max;
     }
@@ -75,11 +75,11 @@ public class LeetCode_42_693 {
         int right = height.length - 1;
         while (left < right) {
             if (height[left] < height[right]) {
-                leftMax = Math.max(leftMax, height[left]);
+                leftMax = Math.max(leftMax,height[left]);
                 max += leftMax - height[left];
                 left++;
             } else {
-                rightMax = Math.max(rightMax, height[right]);
+                rightMax = Math.max(rightMax,height[right]);
                 max += rightMax - height[right];
                 right--;
             }
@@ -88,9 +88,9 @@ public class LeetCode_42_693 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LeetCode_42_693().trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
-        System.out.println(new LeetCode_42_693().trap2(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
-        System.out.println(new LeetCode_42_693().trap3(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
-        System.out.println(new LeetCode_42_693().trap4(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
+        System.out.println(new LeetCode_42_693().trap(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
+        System.out.println(new LeetCode_42_693().trap2(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
+        System.out.println(new LeetCode_42_693().trap3(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
+        System.out.println(new LeetCode_42_693().trap4(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
     }
 }

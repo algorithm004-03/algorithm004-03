@@ -12,14 +12,14 @@ public class LeetCode_590_693 {
     //暴力递归，直接递归中用循环取值
     public List<Integer> postorder(Node root) {
         List<Integer> list = new ArrayList<>();
-        order(root, list);
+        recursionConvenience(root,list);
         return list;
     }
 
-    public void order(Node root, List<Integer> list) {
+    public void recursionConvenience(Node root,List<Integer> list) {
         if (root != null) {
             for (int i = 0; i < root.children.size(); i++) {
-                order(root.children.get(i), list);
+                recursionConvenience(root.children.get(i),list);
             }
             list.add(root.val);
         }

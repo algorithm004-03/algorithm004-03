@@ -6,7 +6,7 @@ package id_693;
  * @Date 2019/10/14
  */
 public class LeetCode_21_693 {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public ListNode mergeTwoLists(ListNode l1,ListNode l2) {
         ListNode head = new ListNode(0);
         ListNode r = head;
         while (l1 != null && l2 != null) {

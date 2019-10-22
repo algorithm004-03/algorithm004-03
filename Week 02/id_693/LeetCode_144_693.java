@@ -13,21 +13,39 @@ public class LeetCode_144_693 {
     //递归
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        front(root, list);
+        recursionConvenience(root,list);
         return list;
     }
 
-    public void front(TreeNode root, List<Integer> list) {
+    public void recursionConvenience(TreeNode root,List<Integer> list) {
         if (root != null) {
             list.add(root.val);
             if (root.left != null) {
-                front(root.left, list);
+                recursionConvenience(root.left,list);
             }
             if (root.right != null) {
-                front(root.right, list);
+                recursionConvenience(root.right,list);
             }
         }
     }
 
     //迭代，后补
+
+    public List<Integer> preorderTraversal2(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        iterativeConvenience(root,list);
+        return list;
+    }
+
+    public void iterativeConvenience(TreeNode root,List<Integer> list) {
+        while (root != null) {
+            list.add(root.val);
+            while (root.left != null) {
+                list.add(root.left.val);
+            }
+            while (root.right != null) {
+                list.add(root.right.val);
+            }
+        }
+    }
 }

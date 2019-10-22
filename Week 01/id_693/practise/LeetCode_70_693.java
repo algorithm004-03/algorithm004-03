@@ -20,7 +20,7 @@ public class LeetCode_70_693 {
             return map.get(n);
         }
         int ret = climbStairs(n - 1) + climbStairs(n - 2);
-        map.put(n, ret);
+        map.put(n,ret);
         return ret;
     }
 

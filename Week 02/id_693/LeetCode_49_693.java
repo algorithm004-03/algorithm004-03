@@ -26,7 +26,7 @@ public class LeetCode_49_693 {
                 List<String> list = new ArrayList<>();
                 list.add(strs[i]);
                 lists.add(list);
-                map.put(hash, index);
+                map.put(hash,index);
                 index++;
             }
 
@@ -43,7 +43,7 @@ public class LeetCode_49_693 {
         int[] count = new int[26];
         for (String s : strs) {
 
-            Arrays.fill(count, 0);
+            Arrays.fill(count,0);
             for (char c : s.toCharArray()) {
                 count[c - 'a']++;
             }
@@ -55,7 +55,7 @@ public class LeetCode_49_693 {
                 List<String> list = new ArrayList<>();
                 list.add(s);
                 lists.add(list);
-                map.put(hash, index);
+                map.put(hash,index);
                 index++;
             }
 
@@ -71,7 +71,7 @@ public class LeetCode_49_693 {
         int[] count = new int[26];
         for (String s : strs) {
 
-            Arrays.fill(count, 0);
+            Arrays.fill(count,0);
             for (char c : s.toCharArray()) {
                 count[c - 'a']++;
             }
@@ -89,7 +89,7 @@ public class LeetCode_49_693 {
                 List<String> list = new ArrayList<>();
                 list.add(s);
                 lists.add(list);
-                map.put(hash, index);
+                map.put(hash,index);
                 index++;
             }
 
@@ -98,8 +98,8 @@ public class LeetCode_49_693 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LeetCode_49_693().groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
-        System.out.println(new LeetCode_49_693().groupAnagrams2(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
-        System.out.println(new LeetCode_49_693().groupAnagrams3(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
+        System.out.println(new LeetCode_49_693().groupAnagrams(new String[]{"eat","tea","tan","ate","nat","bat"}));
+        System.out.println(new LeetCode_49_693().groupAnagrams2(new String[]{"eat","tea","tan","ate","nat","bat"}));
+        System.out.println(new LeetCode_49_693().groupAnagrams3(new String[]{"eat","tea","tan","ate","nat","bat"}));
     }
 }

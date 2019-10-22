@@ -15,13 +15,10 @@ public class LeetCode_11_693 {
         int tempArea;
         for (int i = 0; i < height.length - 1; ++i) {
             for (int j = i + 1; j < height.length; ++j) {
-                tempArea = (j - i) * Math.min(height[i], height[j]);
-                max = Math.max(max, tempArea);
+                tempArea = (j - i) * Math.min(height[i],height[j]);
+                max = Math.max(max,tempArea);
             }
         }
-        do {
-
-        }while (1==2);
         return max;
     }
 
@@ -32,7 +29,7 @@ public class LeetCode_11_693 {
         int right = height.length - 1;
         while (left < right) {
             int minHeight = height[left] < height[right] ? height[left++] : height[right--];
-            max = Math.max(max, minHeight * (right - left + 1));
+            max = Math.max(max,minHeight * (right - left + 1));
         }
         return max;
     }
