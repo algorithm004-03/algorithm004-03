@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class LeetCode_589_693 {
     //暴力递归，直接递归中用循环取值
-    public List<Integer> preorder(Node root) {
+    public List<Integer> postorder(Node root) {
         List<Integer> list = new ArrayList<>();
         recursionConvenience(root,list);
         return list;
@@ -18,10 +18,10 @@ public class LeetCode_589_693 {
 
     public void recursionConvenience(Node root,List<Integer> list) {
         if (root != null) {
-            list.add(root.val);
             for (int i = 0; i < root.children.size(); i++) {
                 recursionConvenience(root.children.get(i),list);
             }
+            list.add(root.val);
         }
     }
 
