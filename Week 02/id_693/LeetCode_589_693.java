@@ -18,10 +18,10 @@ public class LeetCode_589_693 {
 
     public void recursionConvenience(Node root,List<Integer> list) {
         if (root != null) {
+            list.add(root.val);
             for (int i = 0; i < root.children.size(); i++) {
                 recursionConvenience(root.children.get(i),list);
             }
-            list.add(root.val);
         }
     }
 
