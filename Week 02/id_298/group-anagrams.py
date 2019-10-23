@@ -1,5 +1,7 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+
+      # -----------Method 1---------------
       # strs_sorted = ["".join(sorted(item)) for item in strs]
       # print(strs_sorted)
       # results = []
@@ -23,8 +25,21 @@ class Solution:
       #   for lidx in set(idx):
       #     res.append(strs[lidx])
       #   results.append(res)
-      results = collections.defaultdict(list)
+
+      # -----------Method 2---------------
+      # results = collections.defaultdict(list)
+      # for item in strs:
+      #   results["".join(sorted(item))].append(item)
+
+      # -----------Method 3---------------
+      results = {}
+      sort_str = lambda x : "".join(sorted(x))
       for item in strs:
-        results["".join(sorted(item))].append(item)
+        sorted_item = sort_str(item)
+        if sorted_item not in results:
+          results[sorted_item] = []
+          results[sorted_item].append(item)  # 如果没有包含在结果中要添加自身
+        else:
+          results[sorted_item].append(item)
           
       return results.values()
