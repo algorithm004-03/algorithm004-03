@@ -118,6 +118,7 @@ False
 
 *** LeetCode 2 Two Sum
 
+** TODO Review HashMap in Java
 * Tree, Graph, Binary Tree, BST
 
 ** 2-D Data Structure
@@ -163,3 +164,7 @@ class TreeNode:
     - The biggest difference between a Tree and a Graph is the Tree doesn't circle backwards
       + A Linked List is a special type of Tree
       + Tree is a Graph without loops
+
+* Generic Recursion
+
+* Divide & Conquer, Backtracing
