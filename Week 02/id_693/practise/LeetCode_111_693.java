@@ -1,4 +1,6 @@
-package id_693;
+package id_693.practise;
+
+import id_693.TreeNode;
 
 /**
  * @Desc 111. 二叉树的最小深度 https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
@@ -42,10 +44,10 @@ public class LeetCode_111_693 {
         if (root == null) {
             return 0;
         }
-        if (root.left == null) {//如果左节点为null 就找右节点
+        if (root.left == null) {//如果左节点为null 就找右节点，再加上自己所以 + 1
             return minDepth(root.right) + 1;
         }
-        if (root.right == null) {//如果右节点为null 就找左节点
+        if (root.right == null) {//如果右节点为null 就找左节点，同上
             return minDepth(root.left) + 1;
         }
         int left = minDepth(root.left);

@@ -1,4 +1,4 @@
-package id_693;
+package id_693.practise;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;

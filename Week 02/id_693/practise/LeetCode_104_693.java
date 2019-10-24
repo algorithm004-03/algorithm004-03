@@ -1,4 +1,6 @@
-package id_693;
+package id_693.practise;
+
+import id_693.TreeNode;
 
 /**
  * @Desc 104. 二叉树的最大深度   https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/

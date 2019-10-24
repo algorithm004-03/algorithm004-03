@@ -1,4 +1,6 @@
-package id_693;
+package id_693.practise;
+
+import id_693.TreeNode;
 
 /**
  * @Desc 98. 验证二叉搜索树   https://leetcode-cn.com/problems/validate-binary-search-tree/

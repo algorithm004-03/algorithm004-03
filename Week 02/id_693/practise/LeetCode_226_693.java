@@ -1,4 +1,6 @@
-package id_693;
+package id_693.practise;
+
+import id_693.TreeNode;
 
 /**
  * @Desc 226. 翻转二叉树  https://leetcode-cn.com/problems/invert-binary-tree/description/
