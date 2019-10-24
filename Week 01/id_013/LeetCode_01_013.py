@@ -1,19 +1,16 @@
+'''
+第三课第一题
+https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
+'''
 class Solution_1:
-    """
-    解法：遍历移位，很直观的解法，时间复杂度为O(k*n)
-    """
-    def rotate(self,nums,k):
-        for i in range(k):
-            last = nums[-1]
-            for j in range(len(nums)-1,0,-1):
-                nums[j] = nums[j-1]
-            nums[0] = last
-
-
-class Solution_2:
-    """
-    解法：数组整体后移
-    """
-    def rotate(self,nums,k):
-        k %= len(nums)
-        nums[:] = nums[-k:] + nums[:-k]
+    # 双指针遍历，遇到重复的删除第二个
+    def removeDuplicates(self, nums):
+        left= 0
+        right = 1
+        while right < len(nums):
+            if nums[left] == nums[right]:
+                nums.pop(right)
+            else:
+                right +=1
+                left += 1
+        return len(nums)
