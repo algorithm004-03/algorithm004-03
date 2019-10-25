@@ -1,8 +1,5 @@
 package id_693.practise;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +9,6 @@ import java.util.List;
  * @Auther 李雷(KyLin)
  * @Date 2019/10/23
  */
-@RunWith(JUnit4.class)
 public class LeetCode_22_693 {
 
     //回溯法，
@@ -21,11 +17,11 @@ public class LeetCode_22_693 {
     // -类似前中后序遍历
     public List<String> generateParenthesis(int n) {
         List<String> list = new ArrayList<>();
-        generate(list, "", 0, 0, n);
+        generate(list,"",0,0,n);
         return list;
     }
 
-    public void generate(List<String> list, String cur, int open, int close, int max) {
+    public void generate(List<String> list,String cur,int open,int close,int max) {
         //terminator
         if (cur.length() >= max * 2) {
             //process result
@@ -37,11 +33,11 @@ public class LeetCode_22_693 {
         //drill down
         //左括号数量需要小于max 才可以继续增加 左括号
         if (open < max) {
-            generate(list, cur + "(", open + 1, close, max);
+            generate(list,cur + "(",open + 1,close,max);
         }
         //左括号的数量大于右括号的数量说明可以继续增加 右括号
         if (open > close) {
-            generate(list, cur + ")", open, close + 1, max);
+            generate(list,cur + ")",open,close + 1,max);
         }
 
         //restore current status
@@ -51,7 +47,7 @@ public class LeetCode_22_693 {
         LeetCode_22_693 leetCode_22_693 = new LeetCode_22_693();
         System.out.println(leetCode_22_693.generateParenthesis(3));
         System.out.println(leetCode_22_693.generateParenthesis(5));
- 
+
 
     }
 }
