@@ -38,4 +38,11 @@ class Solution {
         return new ArrayList(ans.values());
     }
 
+
+    /**
+     * 1.map中对象修改，无需再重新再put一遍
+     * 2.new ArrayList(ans.valuse())
+     * 3.new String(char[]) 与string.values(char[])都可将char[]转为String。char[].toString=[C@4367e003。
+     * @后是数组的哈希码，默认情况下，该哈希码是数组的内存地址。
+     */
 }
