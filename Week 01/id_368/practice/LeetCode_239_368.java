@@ -1,5 +1,7 @@
 package practice;
 
+import java.util.LinkedList;
+
 /**
  * @author: liuyanhui@daojia-inc.com
  * @date: 2019/10/23
@@ -29,6 +31,31 @@ public class LeetCode_239_368 {
                 }
             }
             res[i] = max;
+        }
+        return res;
+    }
+
+    public static int[] maxSlidingWindow01(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return new int[0];
+        }
+
+        int[] res = new int[nums.length - k + 1];
+        LinkedList<Integer> deque = new LinkedList<>();
+        for (int i = 0; i < nums.length; i++) {
+            // 排序
+            while (!deque.isEmpty() && nums[deque.getLast()] < nums[i]) {
+                deque.removeLast();
+            }
+            deque.addLast(i);
+            // 校验队首是否在窗口内
+            if (deque.getFirst() < i - k + 1) {
+                deque.removeFirst();
+            }
+            // 保存最大值
+            if (i >= k - 1) {
+                res[i - k + 1] = nums[deque.getFirst()];
+            }
         }
         return res;
     }
