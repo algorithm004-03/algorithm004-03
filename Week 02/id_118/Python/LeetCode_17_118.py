@@ -3,7 +3,8 @@ from typing import List
 
 class Solution:
     """
-    This solution strictly follow the recursion template
+    This solution strictly follows the recursion template
+    Time complexity is O(3^n), exponential
     """
 
     def __init__(self):
@@ -66,12 +67,14 @@ class Solution:
                                                                  c=letter))
             self._letter_combo(curr_level + 1, max_level, digits,
                                curr_str + letter)
+
+        # after finishing recursion at each level, revert to the last level
         return
 
 
 def test():
     sol = Solution()
-    res = sol.letterCombinations("567")
+    res = sol.letterCombinations("5678")
     print(res)
 
 
