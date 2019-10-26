@@ -86,7 +86,7 @@
         -   use dictionary with key is the letter, value is the count
 
 2.  Code 1
-
+```python
         class Solution:
             def isAnagram(self, s:str, t: str) -> bool:
                 s_d, t_d = {}, {}
@@ -132,7 +132,7 @@
     
         True
         False
-
+```
 
 ### LeetCode 2 Two Sum
 
