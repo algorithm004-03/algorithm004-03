@@ -6,8 +6,11 @@ class Solution:
     This solution strictly follow the recursion template
     """
 
-    # initiate with a result to store
     def __init__(self):
+        """
+        initiate with a result to store
+        letter_map dict to store the mapping between number and letters
+        """
         self.res = []
         self.letter_map = {
             0: " ",
@@ -37,6 +40,10 @@ class Solution:
         :param curr_str: current letter string
         :return:
         """
+        # for each curr_level, print out the curr_str
+        print("current level is {a} : current str is {b}".format(a=curr_level,
+                                                                 b=curr_str))
+
         # terminator
         if curr_level >= max_level:
             self.res.append(curr_str)
@@ -53,6 +60,10 @@ class Solution:
 
         # drill down for each letter
         for letter in letters:
+            # print out the details for each recursion
+            print("digits[{a}] = {b}, letter {c} is used".format(a=curr_level,
+                                                                 b=digit,
+                                                                 c=letter))
             self._letter_combo(curr_level + 1, max_level, digits,
                                curr_str + letter)
         return
