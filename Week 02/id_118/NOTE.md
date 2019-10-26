@@ -1,21 +1,12 @@
-
-
-# Methodologies
+# 1. Methodologies
 
 
 ## Four Steps Problem Solving Process
 
-
-### Clarification
-
-
-### List all possible solutions => optimal (time & space)
-
-
-### Code
-
-
-### Test
+- Clarification
+- List all possible solutions => optimal (time & space)
+- Code
+- Test
 
 
 ## Consolidate Good Solutions
@@ -24,7 +15,7 @@
 -   Review before interviews
 
 
-# Hash Table, Map and Set
+# 2. Hash Table, Map and Set
 
 
 ## Hash Table
@@ -66,165 +57,171 @@
     -   O(n)
 
 
-### Python Docs
+### Python Implementation
 
 1.  Dictionary
 
 2.  Set
 
 
-## LeetCoding
-
-
 ### LeetCode 242 Valid Anagram
 
-1.  Though Process
+1. Thought Process
 
-    -   To determin if two strings s, t are anagram, they need to be:
-        -   have the same unique letters
-        -   the counts of each unique letters are the same
-        -   use dictionary with key is the letter, value is the count
+   -   To determin if two strings s, t are anagram, they need to be:
+       -   have the same unique letters
+       -   the counts of each unique letters are the same
+       -   use dictionary with key is the letter, value is the count
 
-2.  Code 1
-```python
-        class Solution:
-            def isAnagram(self, s:str, t: str) -> bool:
-                s_d, t_d = {}, {}
-        
-                s_d = self._strTodict(s)
-                t_d = self._strTodict(t)
-                return s_d == t_d
-            
-            # def _compareDict(self, s_d:dict, t_d:dict) -> bool:
-            #     for k in s_d.keys():
-            #         if k not in t_d:
-            #             return False
-            #         else:
-            #             if s_d[k] != t_d[k]:
-            #                 return False
-            #     return True
-        
-            def _strTodict(self, s:str) -> dict:
-                s_d = {}
-                for l in s:
-                    if l in s_d:
-                        s_d[l] += 1
-                    else:
-                        s_d[l] = 1
-                return s_d
-        
-        def test():
-            s = "anagram"
-            t = "nagaram"
-        
-            sol = Solution()
-            print(sol.isAnagram(s, t))
-        
-        def test2():
-            s = "rat"
-            t = "car"
-            sol = Solution()
-            print(sol.isAnagram(s, t))
-        
-        if __name__ == "__main__":
-            test()
-            test2()
-    
-        True
-        False
-```
+2. Code 1
 
-### LeetCode 2 Two Sum
+   ```python
+     class Solution:
+         def isAnagram(self, s:str, t: str) -> bool:
+             s_d, t_d = {}, {}
+     
+             s_d = self._strTodict(s)
+             t_d = self._strTodict(t)
+             return s_d == t_d
+         
+         # def _compareDict(self, s_d:dict, t_d:dict) -> bool:
+         #     for k in s_d.keys():
+         #         if k not in t_d:
+         #             return False
+         #         else:
+         #             if s_d[k] != t_d[k]:
+         #                 return False
+         #     return True
+     
+         def _strTodict(self, s:str) -> dict:
+             s_d = {}
+             for l in s:
+                 if l in s_d:
+                     s_d[l] += 1
+                 else:
+                     s_d[l] = 1
+             return s_d
+     
+     def test():
+         s = "anagram"
+         t = "nagaram"
+     
+         sol = Solution()
+         print(sol.isAnagram(s, t))
+     
+     def test2():
+         s = "rat"
+         t = "car"
+         sol = Solution()
+         print(sol.isAnagram(s, t))
+     
+     if __name__ == "__main__":
+         test()
+         test2()
+     
+     True
+     False
+   ```
 
 
-## TODO Review HashMap in Java
+## Review HashMap in Java
 
 
 ### constructor
 
-1.  constructor
+1. constructor
 
-        public HashMap() {
-            this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
-        }
+   ```java
+     public HashMap() {
+         this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
+     }
+   ```
 
-2.  default load factor
+2. default load factor
 
-        /**
-         * The load factor used when none specified in constructor.
-         */
-        static final float DEFAULT_LOAD_FACTOR = 0.75f;
+   ```java
+     /**
+      * The load factor used when none specified in constructor.
+      */
+     static final float DEFAULT_LOAD_FACTOR = 0.75f;
+   ```
 
-3.  put
+3. put
 
-        public V put(K key, V value) {
-            return putVal(hash(key), key, value, false, true);
-        }
-    
-    1.  putVal
-    
-        -   Initially, the table is empty, table length is 0, invoke the resize function
-        
-            final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
-                           boolean evict) {
-                Node<K,V>[] tab; Node<K,V> p; int n, i;
-                if ((tab = table) == null || (n = tab.length) == 0)
-                    n = (tab = resize()).length;
-        
-        1.  resize
-        
-            -   resize will copy the old table and old table threshold
-            
-                final Node<K,V>[] resize() {
-                    Node<K,V>[] oldTab = table;
-                    int oldCap = (oldTab == null) ? 0 : oldTab.length;
-                    int oldThr = threshold;
-        
-        2.  assign new Cap and new Threshold
-        
-                else {               // zero initial threshold signifies using defaults
-                    newCap = DEFAULT_INITIAL_CAPACITY;
-                    newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
-                }
-            
-            1.  What's the value of newCap?
-            
-                -   move 1 to the left by 4 digits => 16
-                
-                    static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
-            
-            2.  What's the value of new Threshold?
-            
-                -   `DEFAULT_LOAD_FACTOR` \* `DEFAULT_INITIAL_CAPACITY` = 16 \* 0.75 = 12
-            
-            3.  Why n is the power of 2
-            
-                    if ((p = tab[i = (n - 1) & hash]) == null)
-        
-        3.  Create a new table
-        
-            -   Create a new table, which is an array of Nodes
-            
-                Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
-        
-        4.  table
-        
-            -   it's an array of Nodes
-            
-                transient Node<K,V>[] table;
-        
-        5.  Node
-        
-            -   Node should be a node of a linked list
-            
-                static class Node<K,V> implements Map.Entry<K,V> {
-                    final int hash;
-                    final K key;
-                    V value;
-                    Node<K,V> next;
+   ```java
+     public V put(K key, V value) {
+         return putVal(hash(key), key, value, false, true);
+     }
+   ```
+
+     1. putVal
+
+        - Initially, the table is empty, table length is 0, invoke the resize function
+
+          ```java
+          final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                         boolean evict) {
+              Node<K,V>[] tab; Node<K,V> p; int n, i;
+              if ((tab = table) == null || (n = tab.length) == 0)
+                  n = (tab = resize()).length;
+          ```
+
+        - resize will copy the old table and old table threshold
+
+          ```java
+          final Node<K,V>[] resize() {
+              Node<K,V>[] oldTab = table;
+              int oldCap = (oldTab == null) ? 0 : oldTab.length;
+              int oldThr = threshold;
+          ```
+
+        - Assign new Cap and new Threshold
+
+          ```java
+          else {               // zero initial threshold signifies using defaults
+            newCap = DEFAULT_INITIAL_CAPACITY;
+            newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
+          }
+          ```
+
+        - What's the value of newCap?
+
+          - move 1 to the left by 4 digits => 16
+
+            ```java
+            static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
+            ```
+
+          - What's the value of new Threshold? 
+
+            `DEFAULT_LOAD_FACTOR` \* `DEFAULT_INITIAL_CAPACITY` = 16 \* 0.75 = 12
+
+        - Why n is the power of 2
+
+          ```java
+          if ((p = tab[i = (n - 1) & hash]) == null)
+          ```
+
+          It will guarantee the `&` operation here, if it's not the power of 2, it will generate meaningless result
+
+        - Create a new table, which is an array of Nodes
+
+          ```java
+          Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
+          ```
+
+        - Node should be a node of a linked list
+
+          ```java
+          static class Node<K,V> implements Map.Entry<K,V> {
+              final int hash;
+              final K key;
+              V value;
+              Node<K,V> next;
+          ```
 
 
-# Tree, Graph, Binary Tree, BST
+# 3. Tree, Graph, Binary Tree, BST
 
 
 ## 2-D Data Structure
@@ -241,7 +238,7 @@
 
 -   When a Linked List has multiple next pointers => it becomes a Tree
 -   Representation
-    ![img](./assets/binary_tree.jpg)
+    ![img](https://www.tutorialspoint.com/data_structures_algorithms/images/binary_tree.jpg)
 -   Key elements
     -   Root
     -   Sub-tree
@@ -259,12 +256,14 @@
 
 ### Code
 
-1.  Python
+1. Python
 
-        class TreeNode:
-            def __init__(self, val):
-                self.val = val
-                self.left, self.right = None, None
+   ```python
+   class TreeNode:
+       def __init__(self, val):
+       		self.val = val
+       		self.left, self.right = None, None
+   ```
 
 
 ### Traversal
@@ -282,7 +281,7 @@
     -   Tree is a Graph without loops
 
 
-# Generic Recursion
+# 3. Generic Recursion
 
 
 ## Template
@@ -290,19 +289,21 @@
 
 ### Python Code
 
-    def recursion(level, p1, p2, ...):
-        # recursion terminator: must have to avoid stack overflow
-        if level > MAX_LEVEL:
-            process_result
-            return
-    
-        # process the logic in the current level
-        process(level, data...)
-    
-        # drill down
-        self.recursion(level+1, p1, p2,...)
-    
-        # reverse the current level if needed
+```python
+def recursion(level, p1, p2, ...):
+    # recursion terminator: must have to avoid stack overflow
+    if level > MAX_LEVEL:
+        process_result
+        return
+
+    # process the logic in the current level
+    process(level, data...)
+
+    # drill down
+    self.recursion(level+1, p1, p2,...)
+
+    # reverse the current level if needed
+```
 
 
 ### Key takeaway
@@ -327,97 +328,109 @@
 
 ### Code Generate Parentheses without validity check
 
-    class Solution:
-        def generateParenthesis(self, n):
-            # terminator level is 0
-            # total number of string is 2*n, which is the max level
-            # initial state is an empty string ""
-            return self._generate(0, 2*n, "")
-        
-        def _generate(self, level, max_level, curr_state):
-            # terminator
-            if level >= max_level:
-                print(curr_state)
-                return
-            
-            # process current level
-            s1 = curr_state + "("
-            s2 = curr_state + ")"
-            
-            # drill down
-            self._generate(level + 1, max_level, s1)
-            self._generate(level + 1, max_level, s2)        
-            
-            # reverse state
-            # no need as s1, s2 are all local variables
-            # didn't use global var
+```python
+class Solution:
+    def generateParenthesis(self, n):
+        # terminator level is 0
+        # total number of string is 2*n, which is the max level
+        # initial state is an empty string ""
+        return self._generate(0, 2*n, "")
     
-    def test():
-        sol = Solution()
-        sol.generateParenthesis(2)
-    
+    def _generate(self, level, max_level, curr_state):
+        # terminator
+        if level >= max_level:
+            print(curr_state)
+            return
         
-    if __name__ == "__main__":
-        test()
+        # process current level
+        s1 = curr_state + "("
+        s2 = curr_state + ")"
+        
+        # drill down
+        self._generate(level + 1, max_level, s1)
+        self._generate(level + 1, max_level, s2)        
+        
+        # reverse state
+        # no need as s1, s2 are all local variables
+        # didn't use global var
 
-    ((((
-    ((()
-    (()(
-    (())
-    ()((
-    ()()
-    ())(
-    ()))
-    )(((
-    )(()
-    )()(
-    )())
-    ))((
-    ))()
-    )))(
-    ))))
+def test():
+    sol = Solution()
+    sol.generateParenthesis(2)
+```
+
+
+​        
+
+```python
+if __name__ == "__main__":
+    test()
+
+((((
+((()
+(()(
+(())
+()((
+()()
+())(
+()))
+)(((
+)(()
+)()(
+)())
+))((
+))()
+)))(
+))))
+```
 
 
 ### Check validity
 
--   left can be added anytime as long as its number is <= n
--   right:
-    -   cannot start
-    -   must follow a left, and the number of left must be greater than the number of right
+- left can be added anytime as long as its number is <= n
 
-    class Solution:
-        def __init__(self):
-            self.res = []
-            
-        def generate_parentheses(self, n):
-            self._gen_par(0, 0, n, "")
-            return self.res
-    
-        def _gen_par(self, left, right, n, curr_state):
-            # terminator
-            if left == n and right == n:
-                self.res.append(curr_state)
-                return
-    
-            # process the current level
-            if left < n:
-                self._gen_par(left+1, right, n, curr_state+"(")
-    
-            if right < left:
-                self._gen_par(left, right + 1, n, curr_state+")")
-    
-    def test():
-        sol = Solution()
-        print(sol.generate_parentheses(3))
-    
-        
-    if __name__ == "__main__":
-        test()
+- right:
 
-    ['((()))', '(()())', '(())()', '()(())', '()()()']
+  -   cannot start
+  -   must follow a left, and the number of left must be greater than the number of right
+
+  ```python
+  class Solution:
+      def __init__(self):
+          self.res = []
+          
+  def generate_parentheses(self, n):
+      self._gen_par(0, 0, n, "")
+      return self.res
+  
+  def _gen_par(self, left, right, n, curr_state):
+      # terminator
+      if left == n and right == n:
+          self.res.append(curr_state)
+          return
+  
+      # process the current level
+      if left < n:
+          self._gen_par(left+1, right, n, curr_state+"(")
+  
+      if right < left:
+          self._gen_par(left, right + 1, n, curr_state+")")
+  ```
+
+  ```python
+  def test():
+      sol = Solution()
+      print(sol.generate_parentheses(3))
+  
+  
+  if __name__ == "__main__":
+      test()
+  
+  ['((()))', '(()())', '(())()', '()(())', '()()()']
+  ```
 
 
-# Divide & Conquer
+# 4. Divide & Conquer
 
 -   D&C is a type of recursion
 -   It breaks down the target problem into several sub-problems
@@ -427,33 +440,28 @@
 
 ## Generic Recursion
 
-
-### Terminator
-
-
-### Process logic of the current level
-
-
-### Drill down
+- Terminator
+- Process logic of the current level
+- Drill down
+- Reverse
 
 
-### Reverse
+### Recursion template code
 
+```python
+def gen_recursion(level, max_level, p1, p2,...):
+    # 1. Terminator
+    if level >= max_level:
+        process_result
+        return
+    # 2. Process the current logic
+    # do something
+    process(level, data...)
+    # 3. Drill down
+    self.gen_recursion(level+1, max_level, p1, p2,...)
 
-### Code template
-
-    def gen_recursion(level, max_level, p1, p2,...):
-        # 1. Terminator
-        if level >= max_level:
-            process_result
-            return
-        # 2. Process the current logic
-        # do something
-        process(level, data...)
-        # 3. Drill down
-        self.gen_recursion(level+1, max_level, p1, p2,...)
-    
-        # 4. Reverse        
+    # 4. Reverse        
+```
 
 
 ## Generic D&C
@@ -461,32 +469,34 @@
 -   Compare to generic recursion, generic D&C need merge the sub-solutions into a general solution
 
 
-### Template Code
+### D&C template code
 
-    def divide_conquer(self, problem, p1, p2, ...):
-        # terminator
-        if problem is None:
-            # there's no subproblems to solve
-            do_something
-            return
-    
-        # prepare data
-        data = pre_data(problem)
-        # split target problme into subproblems
-        subproblems = split_problem(problem, data)
-    
-        # conquer sub problems
-        sol1 = self.divide_conquer(subproblems[0], p1,...)
-        sol2 = self.divide_conquer(subproblems[1], p1,...)
-        sol3 = self.divide_conquer(subproblems[2], p1,...)
-    
-        # merge the sub-solutions into the final solution
-        sol = merge_sol(sol1, sol2, sol3, ...)
-    
-        # revert the current level states    
+```python
+def divide_conquer(self, problem, p1, p2, ...):
+    # terminator
+    if problem is None:
+        # there's no subproblems to solve
+        do_something
+        return
+
+    # prepare data
+    data = pre_data(problem)
+    # split target problme into subproblems
+    subproblems = split_problem(problem, data)
+
+    # conquer sub problems
+    sol1 = self.divide_conquer(subproblems[0], p1,...)
+    sol2 = self.divide_conquer(subproblems[1], p1,...)
+    sol3 = self.divide_conquer(subproblems[2], p1,...)
+
+    # merge the sub-solutions into the final solution
+    sol = merge_sol(sol1, sol2, sol3, ...)
+
+    # revert the current level states    
+```
 
 
-# Backtracking
+# 5. Backtracking
 
 -   A type of recursion
 -   Trial and error on each level
