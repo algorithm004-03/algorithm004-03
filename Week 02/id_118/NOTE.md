@@ -1,86 +1,22 @@
 
-# Table of Contents
-
-1.  [Methodologies](#org98cc219)
-    1.  [Four Steps Problem Solving Process](#org51bf1b6)
-        1.  [Clarification](#org777a343)
-        2.  [List all possible solutions => optimal (time & space)](#org49d2222)
-        3.  [Code](#org65bfb39)
-        4.  [Test](#org27fcd6a)
-    2.  [Consolidate Good Solutions](#org4594ee6)
-2.  [Hash Table, Map and Set](#orgb82791d)
-    1.  [Hash Table](#orgee5490e)
-        1.  [Gist](#org84ba80d)
-        2.  [Real world implementation](#org99ec3f8)
-        3.  [Hash Function](#orge877797)
-        4.  [Big O](#org0c7ca11)
-        5.  [Python Docs](#org42ddf99)
-    2.  [LeetCoding](#org9acb863)
-        1.  [LeetCode 242 Valid Anagram](#orgea2f061)
-        2.  [LeetCode 2 Two Sum](#org67b0640)
-    3.  [Review HashMap in Java](#org529d441)
-        1.  [constructor](#orgb1ef46c)
-3.  [Tree, Graph, Binary Tree, BST](#org1d65c9c)
-    1.  [2-D Data Structure](#org419f7c1)
-    2.  [Tree](#orgf4b95b1)
-        1.  [Gist](#org90ed210)
-        2.  [Binary Tree](#org39330aa)
-        3.  [Code](#org8566dff)
-        4.  [Traversal](#orgd862e92)
-    3.  [Graph](#orgb9685ef)
-        1.  [Gist](#orgddf0abf)
-4.  [Generic Recursion](#orge7c2f8c)
-    1.  [Template](#orgd8a4ac0)
-        1.  [Python Code](#orgc91e4d9)
-        2.  [Key takeaway](#org70717f3)
-    2.  [Generate Parentheses](#orga37b9df)
-        1.  [Step 1](#org768848a)
-        2.  [Code Generate Parentheses without validity check](#org077893f)
-        3.  [Check validity](#orgf5b6ec2)
-5.  [Divide & Conquer](#org9db46b6)
-    1.  [Generic Recursion](#org2c08284)
-        1.  [Terminator](#org581cc6c)
-        2.  [Process logic of the current level](#orgdfd5a5c)
-        3.  [Drill down](#org09b20cc)
-        4.  [Reverse](#org6add458)
-        5.  [Code template](#orgbb48e37)
-    2.  [Generic D&C](#orga5ecc41)
-        1.  [Template Code](#orgebb0bbf)
-6.  [Backtracking](#orgb5aceed)
-
-
-
-<a id="org98cc219"></a>
 
 # Methodologies
 
 
-<a id="org51bf1b6"></a>
-
 ## Four Steps Problem Solving Process
 
-
-<a id="org777a343"></a>
 
 ### Clarification
 
 
-<a id="org49d2222"></a>
-
 ### List all possible solutions => optimal (time & space)
 
-
-<a id="org65bfb39"></a>
 
 ### Code
 
 
-<a id="org27fcd6a"></a>
-
 ### Test
 
-
-<a id="org4594ee6"></a>
 
 ## Consolidate Good Solutions
 
@@ -88,17 +24,11 @@
 -   Review before interviews
 
 
-<a id="orgb82791d"></a>
-
 # Hash Table, Map and Set
 
 
-<a id="orgee5490e"></a>
-
 ## Hash Table
 
-
-<a id="org84ba80d"></a>
 
 ### Gist
 
@@ -109,8 +39,6 @@
     -   this table storing records is called a hash table
 
 
-<a id="org99ec3f8"></a>
-
 ### Real world implementation
 
 -   Yello pages
@@ -119,16 +47,12 @@
 -   Redis
 
 
-<a id="orge877797"></a>
-
 ### Hash Function
 
 -   val => Hash Function => index
 -   Hash Colision: some values will generate the same index value after mapped by the hash function
 -   Solution in Java: use a Linked List, adding another dimension. The downside of this solution is as the linked list grows, it will increase the time complexity, approaching O(n)
 
-
-<a id="org0c7ca11"></a>
 
 ### Big O
 
@@ -142,8 +66,6 @@
     -   O(n)
 
 
-<a id="org42ddf99"></a>
-
 ### Python Docs
 
 1.  Dictionary
@@ -151,12 +73,8 @@
 2.  Set
 
 
-<a id="org9acb863"></a>
-
 ## LeetCoding
 
-
-<a id="orgea2f061"></a>
 
 ### LeetCode 242 Valid Anagram
 
@@ -216,17 +134,11 @@
         False
 
 
-<a id="org67b0640"></a>
-
 ### LeetCode 2 Two Sum
 
 
-<a id="org529d441"></a>
-
 ## TODO Review HashMap in Java
 
-
-<a id="orgb1ef46c"></a>
 
 ### constructor
 
@@ -312,12 +224,8 @@
                     Node<K,V> next;
 
 
-<a id="org1d65c9c"></a>
-
 # Tree, Graph, Binary Tree, BST
 
-
-<a id="org419f7c1"></a>
 
 ## 2-D Data Structure
 
@@ -326,12 +234,8 @@
 -   The most common 2-D data structures are Tree and Graph
 
 
-<a id="orgf4b95b1"></a>
-
 ## Tree
 
-
-<a id="org90ed210"></a>
 
 ### Gist
 
@@ -347,15 +251,11 @@
     -   Siblings
 
 
-<a id="org39330aa"></a>
-
 ### Binary Tree
 
 -   The most common trees are Binary Trees
 -   A binary tree only has 2 children: left and right
 
-
-<a id="org8566dff"></a>
 
 ### Code
 
@@ -367,19 +267,13 @@
                 self.left, self.right = None, None
 
 
-<a id="orgd862e92"></a>
-
 ### Traversal
 
 -   One of the most important Tree operations is traversal
 
 
-<a id="orgb9685ef"></a>
-
 ## Graph
 
-
-<a id="orgddf0abf"></a>
 
 ### Gist
 
@@ -388,17 +282,11 @@
     -   Tree is a Graph without loops
 
 
-<a id="orge7c2f8c"></a>
-
 # Generic Recursion
 
 
-<a id="orgd8a4ac0"></a>
-
 ## Template
 
-
-<a id="orgc91e4d9"></a>
 
 ### Python Code
 
@@ -417,8 +305,6 @@
         # reverse the current level if needed
 
 
-<a id="org70717f3"></a>
-
 ### Key takeaway
 
 -   Don't perform recursions mannually
@@ -429,12 +315,8 @@
 -   MECE: Mutually exclusive; completely exhaustive
 
 
-<a id="orga37b9df"></a>
-
 ## Generate Parentheses
 
-
-<a id="org768848a"></a>
 
 ### Step 1
 
@@ -442,8 +324,6 @@
 -   don't think about "valid" at this point
 -   terminator
 
-
-<a id="org077893f"></a>
 
 ### Code Generate Parentheses without validity check
 
@@ -474,79 +354,29 @@
     
     def test():
         sol = Solution()
-        sol.generateParenthesis(3)
+        sol.generateParenthesis(2)
     
         
     if __name__ == "__main__":
         test()
 
-    ((((((
-    ((((()
-    (((()(
-    (((())
-    ((()((
-    ((()()
-    ((())(
-    ((()))
-    (()(((
-    (()(()
-    (()()(
-    (()())
-    (())((
-    (())()
-    (()))(
-    (())))
-    ()((((
-    ()((()
-    ()(()(
-    ()(())
-    ()()((
-    ()()()
-    ()())(
-    ()()))
-    ())(((
-    ())(()
-    ())()(
-    ())())
-    ()))((
-    ()))()
-    ())))(
-    ()))))
-    )(((((
-    )(((()
-    )((()(
-    )((())
-    )(()((
-    )(()()
-    )(())(
-    )(()))
-    )()(((
-    )()(()
-    )()()(
-    )()())
-    )())((
-    )())()
-    )()))(
-    )())))
-    ))((((
-    ))((()
-    ))(()(
-    ))(())
-    ))()((
-    ))()()
-    ))())(
-    ))()))
-    )))(((
-    )))(()
-    )))()(
-    )))())
-    ))))((
-    ))))()
-    )))))(
-    ))))))
+    ((((
+    ((()
+    (()(
+    (())
+    ()((
+    ()()
+    ())(
+    ()))
+    )(((
+    )(()
+    )()(
+    )())
+    ))((
+    ))()
+    )))(
+    ))))
 
-
-<a id="orgf5b6ec2"></a>
 
 ### Check validity
 
@@ -587,8 +417,6 @@
     ['((()))', '(()())', '(())()', '()(())', '()()()']
 
 
-<a id="org9db46b6"></a>
-
 # Divide & Conquer
 
 -   D&C is a type of recursion
@@ -597,32 +425,20 @@
     -   merge solutions
 
 
-<a id="org2c08284"></a>
-
 ## Generic Recursion
 
-
-<a id="org581cc6c"></a>
 
 ### Terminator
 
 
-<a id="orgdfd5a5c"></a>
-
 ### Process logic of the current level
 
-
-<a id="org09b20cc"></a>
 
 ### Drill down
 
 
-<a id="org6add458"></a>
-
 ### Reverse
 
-
-<a id="orgbb48e37"></a>
 
 ### Code template
 
@@ -640,14 +456,10 @@
         # 4. Reverse        
 
 
-<a id="orga5ecc41"></a>
-
 ## Generic D&C
 
 -   Compare to generic recursion, generic D&C need merge the sub-solutions into a general solution
 
-
-<a id="orgebb0bbf"></a>
 
 ### Template Code
 
@@ -674,10 +486,7 @@
         # revert the current level states    
 
 
-<a id="orgb5aceed"></a>
-
 # Backtracking
 
 -   A type of recursion
 -   Trial and error on each level
-
