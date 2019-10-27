@@ -32,7 +32,7 @@ public class LeetCode_1_138 {
     }
 
     /**
-     * 使用map优化1
+     * 使用map优化
      * 时间复杂度:O(n)
      * 空间复杂度:O(n)
      * @param nums
