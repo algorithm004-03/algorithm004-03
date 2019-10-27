@@ -1,4 +1,6 @@
-package id_693;
+package id_693.practise;
+
+import id_693.TreeNode;
 
 import java.util.*;
 

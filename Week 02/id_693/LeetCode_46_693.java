@@ -1,10 +1,8 @@
 package id_693;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @Desc 46. 全排列   https://leetcode-cn.com/problems/permutations/
