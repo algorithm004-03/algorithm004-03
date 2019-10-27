@@ -21,8 +21,8 @@ var letterCombinations = function(digits) {
         var result = [];
 
         if (nums.length === 1) {
-            cache[nums] = sub;
-            return sub;
+            cache[nums] = map[a];
+            return map[a];
         }
 
         for (var i = 0; i < map[a].length; ++i) {
