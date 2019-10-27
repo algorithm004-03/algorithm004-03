@@ -122,4 +122,3 @@ private void siftDownUsingComparator(int k, E x) {
     }
     queue[k] = x;
 }
-
