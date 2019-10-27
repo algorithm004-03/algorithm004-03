@@ -1,0 +1,124 @@
+Queue是一个接口继承自Collection接口。
+
+package java.util;
+public interface Queue<E> extends Collection<E> {
+    boolean add(E e); //添加元素,超出容量时抛异常
+    boolean offer(E e); // 添加元素,超出容量时返回false
+    E remove();//删除元素，队列为空时抛异常
+    E poll();//删除元素，队列为空时返回null
+    E element();////查看队头元素，不删除，队列为空时抛异常
+    E peek();//查看队头元素，不删除，队列为空时返回null
+}
+
+----------------------------------------------------------------------------------------------------------------
+PriorityQueue：优先级队列的元素按照其自然顺序进行排序，或者根据构造队列时提供的Comparator进行排序，具体取决于所使用的构造方法。
+transient Object[] queue; //采用数组来存储元素
+
+入队：
+
+public boolean offer(E e) {
+        if (e == null)
+            throw new NullPointerException();
+        modCount++;
+        int i = size;
+        if (i >= queue.length)
+            grow(i + 1); //当队满的时候，动态扩容
+        size = i + 1;
+        if (i == 0)
+            queue[0] = e;
+        else
+            siftUp(i, e);
+        return true;
+}
+
+private void siftUp(int k, E x) {
+    if (comparator != null)
+        siftUpUsingComparator(k, x); //使用构造参数里指定的比较器
+    else
+        siftUpComparable(k, x); //使用默认自然比较器
+}
+
+//么有看懂。。。（repeat）
+private void siftUpComparable(int k, E x) {
+    Comparable<? super E> key = (Comparable<? super E>) x;
+    while (k > 0) {
+        int parent = (k - 1) >>> 1;
+        Object e = queue[parent];
+        if (key.compareTo((E) e) >= 0)
+            break;
+        queue[k] = e;
+        k = parent;
+    }
+    queue[k] = key;
+}
+
+private void siftUpUsingComparator(int k, E x) {
+    while (k > 0) {
+        int parent = (k - 1) >>> 1;
+        Object e = queue[parent];
+        if (comparator.compare(x, (E) e) >= 0)
+            break;
+        queue[k] = e;
+        k = parent;
+    }
+    queue[k] = x;
+}
+
+----------------------------------------------------------------------------------------------------------------
+出队：当第一个元素出列之后，对剩下的元素进行再排序，挑选出最小的元素排在数组第一个位置，从而保证出队顺序
+
+public E poll() {
+    if (size == 0)
+        return null;
+    int s = --size;
+    modCount++;
+    E result = (E) queue[0];
+    E x = (E) queue[s];
+    queue[s] = null;
+    if (s != 0)
+        siftDown(0, x);
+    return result;
+}
+
+private void siftDown(int k, E x) {
+    if (comparator != null)
+        siftDownUsingComparator(k, x);  //指定比较器
+    else
+        siftDownComparable(k, x);    //默认比较器
+}
+
+private void siftDownComparable(int k, E x) {
+    Comparable<? super E> key = (Comparable<? super E>)x;
+    int half = size >>> 1;        // loop while a non-leaf
+    while (k < half) {
+        int child = (k << 1) + 1; // assume left child is least
+        Object c = queue[child];
+        int right = child + 1;
+        if (right < size &&
+            ((Comparable<? super E>) c).compareTo((E) queue[right]) > 0)
+            c = queue[child = right];
+        if (key.compareTo((E) c) <= 0)
+            break;
+        queue[k] = c;
+        k = child;
+    }
+    queue[k] = key;
+}
+
+
+private void siftDownUsingComparator(int k, E x) {
+    int half = size >>> 1;
+    while (k < half) {
+        int child = (k << 1) + 1;
+        Object c = queue[child];
+        int right = child + 1;
+        if (right < size &&
+            comparator.compare((E) c, (E) queue[right]) > 0)
+            c = queue[child = right];
+        if (comparator.compare(x, (E) c) <= 0)
+            break;
+        queue[k] = c;
+        k = child;
+    }
+    queue[k] = x;
+}
