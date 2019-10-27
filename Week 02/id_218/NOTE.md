@@ -401,3 +401,13 @@ def divide_conquer(problem, param1, param2, ...): 
 
     # revert the current level states
 ```
+
+#### 总结
+通过第二周的学习，使我了解和学习了如下基本技能，也在不断的训练自己使用：
+* 递归解题大法：
+    *   1 terminator 结束条件
+    *   2 process 当前循环的逻辑
+    *   3 drill down 进入到下一层（可能只需要一个，也可能需要两次进入，也可能是for循环进入）
+    *   4 reverse states更新清理当前状态（一般回溯算法需要用到。）
+* 不要人肉递归（最大误区），找到最小重复单元
+
