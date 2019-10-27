@@ -26,3 +26,32 @@ private void combine(String str, String digits, int offset, List<String> list) {
 		combine(str + letters.charAt(i), digits, offset + 1, list);
 	}
 }
+
+
+//对于解法1的不同实现
+public List<String> letterCombinations(String digits) {
+	if (digits == null || digits.equals("")) return new ArrayList<>();
+	HashMap<Character, String> map = new HashMap<>();
+	map.put('2', "abc");
+	map.put('3', "def");
+	map.put('4', "ghi");
+	map.put('5', "jkl");
+	map.put('6', "mno");
+	map.put('7', "pqrs");
+	map.put('8', "tuv");
+	map.put('9', "wxyz");
+	List<String> list = new ArrayList<>();
+	combination(map, 0, list, digits, "");
+	return list;
+}
+
+private void combination(HashMap<Character, String> map, int offset, List<String> list, String digits, String res) {
+	if (offset == digits.length()) {
+		list.add(res);
+		return;
+	}
+	String letters = map.get(digits.charAt(offset));
+	for (int i = 0; i < letters.length(); i++) {
+		combination(map, offset + 1, list, digits, res + letters.charAt(i));
+	}
+}
