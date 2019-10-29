@@ -69,6 +69,27 @@ public class LeetCode_17_693 {
     }
 
 
+    //再次优化，后面复习加看别人的写法
+    public List<String> letterCombinations3(String digits) {
+        List<String> list = new ArrayList<>();
+        if(digits.length() == 0) {
+            return list;
+        }
+        String [] temp = new String[]{"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        backtrack3(list,temp,digits,"",0);
+        return list;
+    }
+    private void backtrack3(List<String> list,String[] temp,String digits,String str,int index) {
+        if(index == digits.length()) {
+            list.add(str);
+            return;
+        }
+        int val = (int) digits.charAt(index) - '0' - 2;
+        for (int i = 0; i < temp[val].length(); i++) {
+            backtrack3(list,temp,digits,str + temp[val].charAt(i),index + 1);
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(new LeetCode_17_693().letterCombinations("89"));
 
