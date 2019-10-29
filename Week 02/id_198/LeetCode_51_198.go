@@ -6,6 +6,7 @@ import "bytes"
 func solveNQueens(n int) [][]string {
 	var res [][]string
 	find(&res, n, []int{})
+	res.for
 	return res
 }
 
