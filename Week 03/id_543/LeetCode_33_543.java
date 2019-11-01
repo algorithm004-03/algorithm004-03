@@ -20,4 +20,7 @@ public class LeetCode33 {
         return -1;
     }
 
+    1.如果bgein<=end   end=mid-1
+    2.如果begin<end    end=mid
+
 }
