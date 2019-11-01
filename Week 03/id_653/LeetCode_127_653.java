@@ -1,7 +1,5 @@
 import javafx.util.Pair;
 
-import java.util.*;
-
 public class Solution {
     HashMap wildMap = new HashMap();
 
