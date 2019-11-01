@@ -1,10 +1,10 @@
-import java.util.*
 class Solution {
+
     fun dfs(grid: Array<CharArray>, index: Int, k: Int): Int {
         grid?.let {
             var nr = it.size
             var nc = it[0].size
-            if (index < 0 || k < 0 || index > nr || k > nc || it[index][k].equals('0')) {
+            if (index < 0 || k < 0 || index >=nr || k >=nc || it[index][k].equals('0')) {
                 return 0
             }
             it[index][k] = '0'
@@ -18,8 +18,11 @@ class Solution {
     }
 
     fun numIslands(grid: Array<CharArray>): Int {
+        if (grid.isEmpty()||grid==null) {
+            return 0
+        }
 
-        grid?.filter { grid.isNotEmpty() }. let {
+        grid?.filter { grid.isNotEmpty()}.let {
             var nr = it.size
             var nc = it[0].size
             var sum = 0;
@@ -33,6 +36,7 @@ class Solution {
                     }
                 }
             }
+            return sum
         }
 
         return 0
