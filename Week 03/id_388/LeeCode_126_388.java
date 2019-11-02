@@ -1,48 +1,51 @@
-# NOTE
+package com.company.leetcode.editor.cn;//给定两个单词（beginWord 和 endWord）和一个字典 wordList，找出所有从 beginWord 到 endWord 的最短转换序列。转换需遵循如下规则：
+//
+//
+// 每次转换只能改变一个字母。
+// 转换过程中的中间单词必须是字典中的单词。
+//
+//
+// 说明:
+//
+//
+// 如果不存在这样的转换序列，返回一个空列表。
+// 所有单词具有相同的长度。
+// 所有单词只由小写字母组成。
+// 字典中不存在重复的单词。
+// 你可以假设 beginWord 和 endWord 是非空的，且二者不相同。
+//
+//
+// 示例 1:
+//
+// 输入:
+//beginWord = "hit",
+//endWord = "cog",
+//wordList = ["hot","dot","dog","lot","log","cog"]
+//
+//输出:
+//[
+//  ["hit","hot","dot","dog","cog"],
+//  ["hit","hot","lot","log","cog"]
+//]
+//
+//
+// 示例 2:
+//
+// 输入:
+//beginWord = "hit"
+//endWord = "cog"
+//wordList = ["hot","dot","dog","lot","log"]
+//
+//输出: []
+//
+//解释: endWord "cog" 不在字典中，所以不存在符合要求的转换序列。
+// Related Topics 广度优先搜索 数组 字符串 回溯算法
 
-### 学习总结
 
-#### 1、深度优先和广度优先
-模板
-```
-1、深度优先
-visited = set()
-def dfs(node,visited):
-    visited.add(node)
-    …
-    for next_node in node.children():
-        if not next_node in visited:
-            dfs(next_node,visited)
+import java.util.*;
 
-def dfs(self,tree):
-    if tree.root is None:
-        return []
-    visited,stack = [],[tree.root]
-    while stack:
-        node = stack.pop()
-        visited.add(node)
-        process(node)
-        nodes = generate_related_nodes(node)
-        stack.push(nodes)
-```
-
-```$xslt
-2、广度优先
-def bfs(graph,start,end):
-    queue = []
-    queue.append([start])
-    visited.add(start)
-    
-    while queue:
-        node = queue.pop()
-        visited.add(node)
-        process(node)
-        nodes = generate_relateed_nodes(node)
-        queue.push(nodes)
-```
-
-单词接龙II（126），比较困的一题，学习了其他人的解法,按层遍历，当首先到满足条件的词语后记录最短路径，其他大于的一律return
-```
+//leetcode submit region begin(Prohibit modification and deletion)
+class Solution_126 {
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         List<List<String>> res = new ArrayList<>();
         if (beginWord.equals(endWord)) {
@@ -139,54 +142,18 @@ def bfs(graph,start,end):
 
         return res;
 
-    } 
-```
-
-#### 贪心和二分查找
-1、贪心算法是一种在每一步选择中都采取当前状态下最好或局部最优的选择，从而希望或者导致全局最优或最好的算法
-2、不同：贪心不能回退。动态规划保存以前的运算结果，并根据以前的结果进行选择，有回退功能
-解决最优问题
-最小生成树，haffman
-
-二分查找
-1、目标单调性
-2、存在上下边界
-3、能够通过索引访问
-模板
-```
-left,right = 0,len(array) - 1
-while left <= right:
-    mid = (left + right) /2 ;
-    if array[mid] == target:
-        break or return
-    else array[mid] < target:
-        left = mid + 1;
-    else :
-        right = mid - 1;
-
-```
-旋转数组中最小值判断加了个临界值判断函数
-```
-private boolean checkPoint(int midIndex,int[] num) {
-
-        int leftIndex = -1;
-        int rightIndex = -1;
-        //两边判断
-        int len = num.length;
-
-        leftIndex = midIndex - 1;
-        if (leftIndex < 0) {
-            leftIndex = len - 1;
-        }
-        rightIndex = midIndex + 1;
-        if (rightIndex > len - 1) {
-            rightIndex = 0;
-        }
-        int target = num[midIndex];
-        if (target < num[leftIndex] && target < num[rightIndex]) {
-            return true;
-        }
-        return false;
     }
-```
 
+
+//    public static void main(String[] args) {
+//        Solution s = new Solution();
+//        String beginWord = "hit";
+//        String  endWord = "cog";
+//        List<String> wordList = Arrays.asList(new String[]{"hot","dot","dog","lot","log","cog"});
+//
+//        List<List<String>> res = s.findLadders(beginWord,endWord,wordList);
+//        System.out.println(res.toString());
+//
+//    }
+}
+//leetcode submit region end(Prohibit modification and deletion)
