@@ -30,3 +30,29 @@ public class Solution
         return result;
     }
 }
+
+
+//dfs
+public class Solution
+{
+    public IList<int> LargestValues(TreeNode root)
+    {
+        var result = new List<int>();
+        if (root is null) return new List<int>();
+        _DFS(root, 0, result);
+        return result;
+    }
+
+    private IList<int> _DFS(TreeNode node, int level, IList<int> result)
+    {
+        if (node is null)
+            return;
+        if (result.Count() == level)
+            result.Add(int32.MinValue);
+        if (node.val > result[level])
+            result[level++] = node.val;
+        _DFS(node.left, level, result);
+        _DFS(node.right, level, result);
+
+    }
+}
