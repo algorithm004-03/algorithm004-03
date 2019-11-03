@@ -1,18 +1,17 @@
-# NOTE
+/*
+ * @lc app=leetcode id=153 lang=csharp
+ *
+ * [153] Find Minimum in Rotated Sorted Array
+ */
 
-question: 使用二分查找，寻找一个半有序数组 [4, 5, 6, 7, 0, 1, 2] 中间无序的地方
-
-即寻找 数组中最小值的下标- nums[i] > nums[i+1] 
-
-
-
-//先找pivot point 即2遍二分查找
+// @lc code=start
 public class Solution
 {
-    public int SearchPivotPoint(int[] nums)
+    public int FindMin(int[] nums)
     {
-        if (nums.Length <= 1) return -1;
-        return FindPivotIndex(nums);
+        if (nums.Length <= 0) return -1;
+        if (nums.Length == 1) return nums[0];
+        return nums[FindPivotIndex(nums)];
     }
 
     private int FindPivotIndex(int[] nums)
@@ -39,4 +38,5 @@ public class Solution
         return 0;
     }
 }
+// @lc code=end
 
