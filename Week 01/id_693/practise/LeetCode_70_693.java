@@ -12,14 +12,17 @@ public class LeetCode_70_693 {
     //使用map来优化递归的重复项
     public int climbStairs(int n) {
         Map<Integer, Integer> map = new HashMap<>(n,1);
+        return a(n,map);
+    }
 
+    private int a(int n,Map<Integer, Integer> map) {
         if (n == 1 || n == 2) {
             return n;
         }
         if (map.containsKey(n)) {
             return map.get(n);
         }
-        int ret = climbStairs(n - 1) + climbStairs(n - 2);
+        int ret = a(n - 1,map) + a(n - 2,map);
         map.put(n,ret);
         return ret;
     }

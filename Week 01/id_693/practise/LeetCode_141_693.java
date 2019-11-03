@@ -25,6 +25,11 @@ public class LeetCode_141_693 {
     }
 
     //进阶，快慢指针
+    /*
+    题解：
+    1、如果快指针后面为null  那么说明不是环形
+    2、如果当slow == fast 说明是环形
+     */
     public boolean hasCycle2(ListNode head) {
         if (head == null || head.next == null) {
             return false;
