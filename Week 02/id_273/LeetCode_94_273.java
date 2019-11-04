@@ -1,6 +1,6 @@
 //94 二叉树的中序遍历
 
-//1. 递归解法
+//1. 递归解法	执行用时击败100%
 //通过最简单的递归完成左中右的中序遍历
 //时间复杂度O(n)
 class Solution {
@@ -15,22 +15,21 @@ class Solution {
     }
 }
 
-//2. 辅助栈迭代
-//递归的本质是栈
-//时间复杂度O(n):虽然是两个while循环，但总体上只是迭代获取每个TreeNode的左节点并存入栈
+//2. 辅助栈迭代		执行用时击败大约95%
+//思路：递归的本质是栈
+//时间复杂度O(n)
 class Solution {
     List<Integer> arrayList = new ArrayList<>();
     public List<Integer> inorderTraversal(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode current = root;
-        while (current!=null || !stack.isEmpty()) {
-            while (current!=null) {
-                stack.push(current);
-                current = current.left;
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
             }
-            current = stack.pop();
-            arrayList.add(current.val);
-            current = current.right;
+            TreeNode curr = stack.pop();
+            arrayList.add(curr.val);
+            root = curr.right;
         }
         return arrayList;
     }
