@@ -2,6 +2,9 @@ from collections import defaultdict
 
 
 class Solution(object):
+    """
+    This solution uses collections' defaultdict
+    """
     def findLadders(self, beginWord, endWord, wordList):
         """
         :type beginWord: str
