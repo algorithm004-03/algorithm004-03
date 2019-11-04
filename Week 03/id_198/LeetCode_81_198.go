@@ -8,16 +8,6 @@ func search(nums []int, target int) bool {
 		return false
 	}
 
-	if nl == 1 {
-
-		if nums[0] == target {
-
-			return true
-		}
-
-		return false
-	}
-
 	l := 0
 	r := nl - 1
 	m := r / 2
