@@ -5,7 +5,7 @@
 //temp1[]每次筛选出temp2中的最大值进行存储
 //时间复杂度O(n^2)
 //空间复杂度O(n)
-public static int[] maxSlidingWindow(int[] nums, int k) {
+public int[] maxSlidingWindow(int[] nums, int k) {
 	if (k == 0) return new int[0];
 	int temp1[] = new int[nums.length-k+1];//用于存放temp2中的最大值
 	int count = 0;
@@ -20,7 +20,7 @@ public static int[] maxSlidingWindow(int[] nums, int k) {
 	return temp1;
 }
 
-private static int getMax(int[] arr) {
+private int getMax(int[] arr) {
 	int max = -999999999;
 	for (int i = 0;i<arr.length;i++) {
 		if (arr[i]>max) {
