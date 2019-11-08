@@ -18,41 +18,54 @@ public static int climbStairs(int n) {
 		return climbStairs(n-1) + climbStairs(n-2);
 }
 
-//解法2：动态规划
-//思路：寻找重复子问题,N1=1,N2=2,N3=N1+N2,N4=N3+N2...,可以将计算过程转换为数组迭代
-//		但目前还并不了解什么是动态规划...
+//解法2：动态规划		执行用时击败100%
+//思路：寻找重复子问题, F(3) = F(2) + F(1); F(4) = F(3) + F(2), 因此可以把每次的运算结果存储到数组
 //时间复杂度O(n)
-//总结：观察重复子问题
+//空间复杂度O(n)
+//总结：动态规划的方法需要寻找到程序运行的重复性, 方法如其名, 归纳程序动态运行的规律, 用更简单的方法解决问题。
 public int climbStairs(int n) {
-	if (n == 0) return 0;
-	if (n == 1) return 1;
-	if (n == 2) return 2;
-	int[] temp = new int[n];
-	temp[0] = 1;
-	temp[1] = 2;
-	
-	for (int i = 2; i<n; i++) {
-		temp[i] = temp[i-1] + temp[i-2];
+	if (n == 0 || n == 1 || n == 2) return n;
+	int[] dp = new int[n];
+	dp[0] = 1;
+	dp[1] = 2;
+	for (int i = 2; i < n; i++) {
+		dp[i] = dp[i - 1] + dp[i - 2];
 	}
-	return temp[n-1];
+	return dp[n - 1];
 }
 
-//解法3：记忆化递归
+//解法2.1 动态规划优化		执行用时击败100%
+//思路：由于动态规划方法每次都只需要操作三个变量, 因此将数组赋值操作简化为变量之间的赋值操作
+//时间复杂度O(n)
+//空间复杂度O(1)
+public int climbStairs(int n) {
+	if (n == 0 || n == 1 || n == 2) return n;
+	int temp1 = 1;
+	int temp2 = 2;
+	int result = 0;
+	for (int i = 2; i < n; i++) {
+		result = temp1 + temp2;
+		temp1 = temp2;
+		temp2 = result;
+	}
+	return result;
+}
+
+//解法3：记忆化递归		执行用时击败100%
 //思路：把每一次递归的值在数组中缓存，最后返回数组中的第一个数即是结果
 //时间复杂度O(n)
 //空间复杂度O(n)
 //总结：递归的优化手段也可以通过缓存...还是动态规划比较好理解,简单快速 
 class Solution {
-    public static int climbStairs(int n) {
-        int temp[] = new int[n-1];
-        return climb(n, n, temp);
+    public int climbStairs(int n) {
+        if (n == 1 || n == 2) return n;
+        int[] temp = new int[n - 2];
+        return recur(n, n, temp);
     }
 
-    private static int climb(int k, int n, int temp[]) {
-        if (k == 0) return 1;
-        if (k == 1) return 1;
-        if (temp[n-k] > 0) return temp[n-k];
-        temp[n-k] = climb(k-1, n, temp) + climb(k-2, n, temp);
-        return temp[n-k];
+    private int recur(int n, int k, int[] temp) {
+        if (k == 1 || k == 2) return k;
+        else if (temp[n - k] != 0) return temp[n - k];
+        else return temp[n - k] = recur(n, k - 1, temp) + recur(n, k - 2, temp);
     }
 }

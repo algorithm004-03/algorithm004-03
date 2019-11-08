@@ -1,24 +1,21 @@
 //78. 子集
 
-//解法1：回溯
-//思路：类似22题的括号生成, 第一个递归函数先运行到最底层, 然后逐层执行二个递归方法
-//		对于该题只需要保证获取到所有不重复的组合即可, 下探到最底层从index = 3开始
+//解法1：回溯	执行时间超越99%
+//思路：参考77. 组合, for循环的结束条件就是递归的结束条件, 每次drill down都添加当前list中的元素到result
+//总结：对于子集, 组合, 全排列这类题, 递归的思路都差不太多, 每次做完这种题都会忘, 希望再多做几遍后能够看到问题的本质。
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        if (nums == null) return result;
-        dfs(result, nums, new ArrayList<>(), 0);
-        return result;
+        List<List<Integer>> res = new ArrayList<>();
+        dfs(0, nums, res, new ArrayList<Integer>());
+        return res;
     }
 
-    private void dfs(List<List<Integer>> result, int[] nums, List<Integer> list, int index) {
-        if (index == nums.length) {
-            result.add(new ArrayList<Integer>(list));
-            return;
+    private void dfs(int start, int[] nums, List<List<Integer>> res, List<Integer> list) {
+        res.add(new ArrayList<Integer>(list));
+        for (int i = start; i < nums.length; i++) {
+            list.add(nums[i]);
+            dfs(i + 1, nums, res, list);
+            list.remove(list.size() - 1);
         }
-        dfs(result, nums, list, index + 1);
-        list.add(nums[index]);
-        dfs(result, nums, list, index + 1);
-        list.remove(list.size() - 1);
     }
 }
