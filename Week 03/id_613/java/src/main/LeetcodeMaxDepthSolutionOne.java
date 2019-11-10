@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * 二叉树，max depth
  * <p>
- * 采用递归，时间复杂度O(2^N)，空间复杂度O(1)
+ * 采用递归，时间复杂度O(logN)，空间复杂度O(1)
  */
 class LeetcodeMaxDepthSolutionOne {
   public class TreeNode {
