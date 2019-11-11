@@ -64,8 +64,21 @@ public class LeetCode_62_693 {
         return temp[n - 1];
     }
 
+    //增加老师题解 -空间复杂度O(N ^ 2)  里面提前把为1的考虑
+    public int uniquePaths4(int m, int n) {
+        int[][] temp = new int[m][n];
+        for (int i = 0; i < n; i++) temp[0][i] = 1;
+        for (int i = 0; i < m; i++) temp[i][0] = 1;
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                temp[i][j] += temp[i - 1][j] + temp[i][j - 1];
+            }
+        }
+        return temp[m - 1][n - 1];
+    }
+
     public static void main(String[] args) {
-        Assert.assertEquals(1, new LeetCode_62_693().uniquePaths(1, 1));
-        Assert.assertEquals(28, new LeetCode_62_693().uniquePaths(7, 3));
+        Assert.assertEquals(1, new LeetCode_62_693().uniquePaths4(1, 1));
+        Assert.assertEquals(28, new LeetCode_62_693().uniquePaths4(7, 3));
     }
 }
