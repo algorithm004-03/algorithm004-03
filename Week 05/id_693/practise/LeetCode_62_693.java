@@ -46,7 +46,7 @@ public class LeetCode_62_693 {
         Arrays.fill(temp, 1);
         for (int i = m - 2; i >= 0; i--) {
             for (int j = n - 2; j >= 0; j--) {
-                temp[j] = temp[j + 1] + temp[j];
+                temp[j] += temp[j + 1];
             }
         }
         return temp[0];
@@ -58,7 +58,7 @@ public class LeetCode_62_693 {
         Arrays.fill(temp, 1);
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
-                temp[j] = temp[j - 1] + temp[j];
+                temp[j] += temp[j - 1];
             }
         }
         return temp[n - 1];
