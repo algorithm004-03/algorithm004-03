@@ -49,8 +49,9 @@ class Solution(object):
         #                 q.append((new, level + 1))
         #                 bank.remove(new)
         # return -1   
-                        
+    
         # DFS
+        change = {'A': 'TCG', 'T': 'ACG', 'C': 'ATG', 'G': 'ATC'}
         def dfs(level, cur, bank = bank, pre_chenge_index = -1):
             if cur == end:
                 if self.min_step == -1 or self.min_step > level:
@@ -70,7 +71,9 @@ class Solution(object):
                         dfs(level + 1, new, bank, i)
                         # 恢复现场进入下个循环
                         bank.append(new)
-                
+        self.min_step = -1
+        dfs(0, start)
+        return self.min_step
         
     
     
