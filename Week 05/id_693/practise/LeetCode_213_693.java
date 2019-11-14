@@ -8,7 +8,6 @@ package id_693.practise;
 public class LeetCode_213_693 {
     //dp 和之前的 一样：区别就是 开始偷，那么最后不偷，只需要控制好范围就好了
     public int rob(int[] nums) {
-        if (nums.length == 0) return 0;
         if (nums.length == 1) return nums[0];
         return  Math.max(helper(nums,0,nums.length - 2),helper(nums,1,nums.length -1));
     }
