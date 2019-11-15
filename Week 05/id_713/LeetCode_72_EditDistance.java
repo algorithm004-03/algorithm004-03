@@ -1,4 +1,4 @@
-package id_713.not_finish;
+package id_713;
 
 /**
  * 72. 编辑距离
