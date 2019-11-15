@@ -36,7 +36,8 @@ public class LeetCode_198_693 {
         for (int i = 2; i < nums.length; i++) {
             dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
         }
-        return Math.max(dp[nums.length - 1], dp[nums.length - 2]);
+//        return Math.max(dp[nums.length - 1], dp[nums.length - 2]);//反正最后的就是最大值了
+        return dp[nums.length - 1];
     }
 
     //去1维
@@ -52,6 +53,7 @@ public class LeetCode_198_693 {
     }
 
     public static void main(String[] args) {
+        new LeetCode_198_693().rob2(new int[]{2, 1, 1, 2});
         assert new LeetCode_198_693().rob2(new int[]{2, 1, 1, 2}) == 4;
     }
 }
