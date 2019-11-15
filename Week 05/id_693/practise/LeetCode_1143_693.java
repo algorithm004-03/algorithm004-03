@@ -10,6 +10,10 @@ import org.junit.Assert;
 public class LeetCode_1143_693 {
 
     //dp 解法：默认设置行列为0，如果遇到相同的，则直接 用斜边+1，否则直接取上下位置的最大值。
+    /*
+        dp方程： 相同  dp[i][j] = dp[i - 1][j - 1] + 1;
+                不同  dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
+     */
     public int longestCommonSubsequence2(String text1, String text2) {
         int m = text1.length();
         int n = text2.length();
