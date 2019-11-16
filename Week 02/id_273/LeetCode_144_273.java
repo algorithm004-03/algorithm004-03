@@ -1,6 +1,6 @@
 //144 二叉树前序遍历
 
-//1. 递归解法
+//1. 递归解法		执行用时击败100%
 //时间复杂度O(n)
 class Solution {
     List<Integer> arraylist = new ArrayList<>();
@@ -14,7 +14,7 @@ class Solution {
     }
 }
 
-//2. 辅助栈迭代
+//2. 辅助栈迭代		执行用时击败93%
 //时间复杂度O(n)
 class Solution {
     List<Integer> list = new ArrayList<>();

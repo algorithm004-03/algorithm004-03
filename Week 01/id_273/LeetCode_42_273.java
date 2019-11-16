@@ -35,26 +35,20 @@ public int trap(int[] height) {
 //时间复杂度为O(n^2)
 //空间复杂度为O(1)
 public int trap(int[] height) {
-	int sum = 0;
-	for (int i = 1; i < height.length - 1; i++) {
+	int count = 0;
+	for (int i = 1; i < height.length; i++) {
 		int max_left = 0;
 		for (int j = i - 1; j >= 0; j--) {
-			if (height[j] > max_left) {
-				max_left = height[j];
-			}
+			if (height[j] > max_left) max_left = height[j];
 		}
-		if (max_left <= height[i]) continue;
 		int max_right = 0;
 		for (int j = i + 1; j < height.length; j++) {
-			if (height[j] > max_right) {
-				max_right = height[j];
-			}
+			if (height[j] > max_right) max_right = height[j];
 		}
-		if (max_right <= height[i]) continue;
 		int min = Math.min(max_left, max_right);
-		sum = sum + (min - height[i]);
+		count += min > height[i] ? min - height[i] : 0;
 	}
-	return sum;
+	return count;
 }
 
 //解法3：动态规划		执行用时击败100%
@@ -64,21 +58,22 @@ public int trap(int[] height) {
 //空间复杂度O(n)
 public int trap(int[] height) {
 	int sum = 0;
-	int[] left_max = new int[height.length];
-	for (int i = 1; i < height.length - 1; i++) {
-		left_max[i] = Math.max(left_max[i - 1], height[i - 1]);
+	int[] max_left = new int[height.length];
+	int[] max_right = new int[height.length];
+	for (int i = 1; i < height.length; i++) {
+		max_left[i] = Math.max(height[i - 1], max_left[i - 1]);
 	}
-	int[] right_max = new int[height.length];
 	for (int i = height.length - 2; i > 0; i--) {
-		right_max[i] = Math.max(right_max[i + 1], height[i + 1]);
+		max_right[i] = Math.max(height[i + 1], max_right[i + 1]);
 	}
 	for (int i = 1; i < height.length - 1; i++) {
-		sum += Math.min(left_max[i], right_max[i]) > height[i] ?  Math.min(left_max[i], right_max[i]) - height[i] : 0;
+		int min = Math.min(max_left[i], max_right[i]);
+		sum += min > height[i] ? min - height[i] : 0;
 	}
 	return sum;
 }
 
-//解法4：双指针		执行用时击败75%
+//解法4：双指针		执行用时击败约75%
 //思路：基于解法3动态规划, 可以成功将max_left数组采用变量暂存, 但是对于max_right数组是从右向左遍历的, 因此不能同时把max_right数组用变量替代, 那么就可以通过双指针解决
 //		对于按列求的方法中, 最后都需要寻找左边和右边列最大值中的较小值 : Math.min(left_max, right_max)		
 //		而对于变量max_left的计算可以通过代码"max_left = Math.min(max_left, height[i - 1])"
@@ -109,7 +104,7 @@ public int trap(int[] height) {
 	return count;
 }
 
-//解法5：栈
+//解法5：栈		执行用时击败约32%
 //思路：当前高度若小于等于栈顶元素(当前左边界), 入栈(成为新的左边界), 指针后移
 //		若当前高度大于栈顶元素, 说明栈顶元素X与其左右边界存在高度差, 也就是能够接雨水, 计算左右边界之间的水。
 //			直到当前高度不大于栈顶高度或者栈空位置, 然后当前高度作为新的左边界入栈, 指针后移

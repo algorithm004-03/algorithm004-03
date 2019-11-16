@@ -6,7 +6,7 @@
 //空间复杂度O(n)
 class Solution {
     public TreeNode invertTree(TreeNode root) {
-        if (root == null || (root.left == null && root.right == null)) return root;
+        if (root == null) return root;
         TreeNode leftNode = root.left;
         TreeNode rightNode = root.right;
         root.right = invertTree(leftNode);
