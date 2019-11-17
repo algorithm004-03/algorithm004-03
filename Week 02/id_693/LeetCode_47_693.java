@@ -10,6 +10,8 @@ import java.util.*;
 public class LeetCode_47_693 {
     List<List<Integer>> list = new ArrayList<>();
     boolean[] used ;
+
+
     public List<List<Integer>> permuteUnique(int[] nums) {
         Arrays.sort(nums);
         used = new boolean[nums.length];
@@ -17,6 +19,13 @@ public class LeetCode_47_693 {
         return list;
     }
 
+    // 思路:先排序
+    /*
+        1、先用枚举穷举所有结果
+        2、开始剪枝：
+                使用一个布尔数组来作为条件，如果数组中加了这个元素，那么就跳过，如果没有则继续下去。最后回溯的时候处理状态为false，restore current status
+                布尔数组默认是false；如果只有当前是true那么说明这个元素添加过了
+     */
     private void backtrack(int [] nums, Stack<Integer> stack, int first) {
         if (first == nums.length) {
             list.add(new ArrayList<>(stack));
