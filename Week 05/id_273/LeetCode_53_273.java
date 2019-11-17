@@ -1,19 +1,17 @@
 //53. 最大子序和
 
-//解法1：暴力解法		执行用时：108ms
+//解法1：暴力解法		执行用时：105ms
 //思路：遍历所有元素, 获取当前元素能够与后面的所有元素组成的子序和中的最大值, 然后返回所有元素子序和最大值中的最大值
 //时间复杂度：O(n^2)
 //空间复杂度：O(1)
 public int maxSubArray(int[] nums) {
-	int result = nums[0];
+	int result = Integer.MIN_VALUE;
 	for (int i = 0; i < nums.length; i++) {
-		int max = Integer.MIN_VALUE;
 		int sum = 0;
 		for (int j = i; j < nums.length; j++) {
 			sum += nums[j];
-			max = Math.max(sum, max);
+			result = Math.max(result, sum);
 		}
-		result = Math.max(result, max);
 	}
 	return result;
 }
