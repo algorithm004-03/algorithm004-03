@@ -1,34 +1,79 @@
 # NOTE
 
-懵逼时：
-1.	暴力方法？ 基本情况？ - 便于理清基本解题逻辑 为找重复子问题打基础
-2.	找 最近 重复子问题。 数学推导法 - 从简单情况列举。 为什么？ 因为 计算机只能处理if else loop， 所以所有思路只能变成去找重复性
+深度学习内容
+Array, LinkedList, Stack (interface), Queue (interface), Deque - Double Ended Queue
+
+了解内容
+SkipList， Priority Queue (interface) - 多样实现方法
+
+解题策略
+1.	考虑暴力方法。 理清基本解题逻辑 为找重复子问题打基础
+2.	找 最近 重复子问题。 
+    数学推导法 - 从简单情况列举。 为什么？ 因为 计算机只能处理if else loop， 所以所有思路只能变成去找重复性
 
 
-思想：
-1.	左右夹逼
-2.	快慢指针
+解题思想：
+1.	左右夹逼 （从中间到两边）
+2.	快慢指针  - 通过速度不同的多指针， 实现O（1）空间操作
+3.  空间换时间， 升维  
+    a. Deque (实现中间值的线性有序记录) 
+    b. Dynamic programming aka 表格编程 （可预先记录计算过程中的中间值，随时取用）Deque的升维版本
+4. 空间换时间的技巧
+    a. 栈 - 具有最近相关性。 洋葱结构
+    b. 队列 - 强调先来后到
 
 
-5分钟思考没思路直接看答案， 不需要发明创造
+学习方法
+1. 5遍刷题法  
+    过遍数 很重要
+    看题解 做题 都要过遍数
 
-
-接口
-Stack
-Queue
-
-Priority Queue  也是接口
-底层实现多样化 较为复杂  - 1 heap   2 bst   3 avl   4 treap
-
-
-什么样的题目可以用栈来解决 - 如果具有最近相关性。 现实例子 - 洋葱
-
-用队列解决 - 强调先来后到的
-
-
-过遍数 很重要
-看题解 做题 都要过遍数
+2. 5分钟思考没思路直接看答案， 不需要发明创造
 
 
 
-嗯， 做完第一课刚觉得自己水平还行， 就被 第二课直方图和雨水教育了。 果然还是菜鸡。。。
+Deque 改写
+
+Deque<String> deque = new LinkedList();
+deque.addFirst("a");
+deque.addFirst("b");
+deque.addFirst("c");
+System.out.println(deque);
+
+String str = deque.peekFirst();
+System.out.println(str);
+System.out.println(deque);
+
+while (deque.size() > 0) {
+    System.out.println(deque.removeFirst());
+}
+System.out.println(deque);
+
+
+
+不熟悉java 简单源码分析
+
+Queue source code anlysis
+
+first in first out
+
+Time Complexity
+add, delete O(1)
+find O(n)
+Queue is top level interface
+
+Supported Methods
+Operation Category	Throw	    Return Value
+Insert	            add()	    offer(e) false
+Remove	            remove()	poll() null
+Examine	            element()	peek() null
+
+Priority Queue source code analysis
+
+Unbounded
+Based on Heap
+Support custom element comparator upon construction
+
+Time Complexity
+add O(1)
+get O(logN)
