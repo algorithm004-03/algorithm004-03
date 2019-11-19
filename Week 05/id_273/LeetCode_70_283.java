@@ -7,30 +7,27 @@
 //	  n = 4 ,则只可能从台阶2跨2步,或者从台阶3跨1步 F(4) = F(3) + F(2)
 //	  ....	
 
-//解法1：斐波那契数列递归
+//解法1：斐波那契数列递归	提交超时
 //思路：...
 //时间复杂度O(2^n)
-public static int climbStairs(int n) {
-		if (n <= 2) return n;
-		return climbStairs(n-1) + climbStairs(n-2);
+public int climbStairs(int n) {
+	if (n <= 2) return n;
+	return climbStairs(n-1) + climbStairs(n-2);
 }
 
 //解法2：记忆化递归		执行用时：0ms
 //思路：创建一个缓存数组用于存储每一次递归的结果, 避免了不必要的重复计算
 //时间复杂度O(n)
 //空间复杂度O(n)
-class Solution {
-    public int climbStairs(int n) {
-        if (n <= 2) return n;
-        int[] temp = new int[n - 2];
-        return recur(n, n, temp);
-    }
+public int climbStairs(int n) {
+	int[] cache = new int[n + 1];
+	return recur(cache, n);
+}
 
-    private int recur(int n, int k, int[] temp) {
-        if (k == 1 || k == 2) return k;
-        else if (temp[n - k] != 0) return temp[n - k];
-        else return temp[n - k] = recur(n, k - 1, temp) + recur(n, k - 2, temp);
-    }
+private int recur(int[] cache, int n) {
+	if (cache[n] != 0) return cache[n];
+	if (n <= 2) return cache[n] = n;
+	return cache[n] = recur(cache, n - 1) + recur(cache, n - 2);
 }
 
 //解法3：动态规划（一维数组版）		执行用时：0ms
@@ -54,12 +51,12 @@ public int climbStairs(int n) {
 //时间复杂度O(n)
 //空间复杂度O(1)
 public int climbStairs(int n) {
-	if (n <= 2) return n; 
-	int temp = 2, prev = 1, curr = 0;
+	if (n <= 2) return n;
+	int prev = 1, temp = 2, curr = 0;
 	for (int i = 3; i <= n; i++) {
-		curr = prev + temp;
+		curr = temp + prev;
 		prev = temp;
-		temp = curr;
+		temp = curr;    
 	}
 	return curr;
 }
