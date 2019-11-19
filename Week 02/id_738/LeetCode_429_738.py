@@ -16,15 +16,16 @@ class Solution(object):
         if not root:
             return []
         queue = [root]
+        result = []
         while queue:
             t = []
             children = []
             for i in queue:
                 t.append(i.val)
                 children += i.children
-            self.result.append(t)
+            result.append(t)
             queue = children
-        return self.result
+        return result
         
 
         

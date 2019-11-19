@@ -1,11 +1,9 @@
 //98. 验证是否是BSTree
 
-//解法1：递归
-//思路：重复子问题为 : 判断左节点是否小于currentNode,且右节点是否大于currentNode。
-//					   那么可以得知,我们只需要将当前节点与父结点的value进行对比即可
-//		terminate：当currentNode为叶子节点,return true;
-//		logical：判断currentNode.val(currentNode可能为left或right)是否符合上一层递归中父结点传入的参数
-//		drill down：作为父结点,传入value给下一层递归,以判断左右子节点是否符合要求
+//解法1：深度优先遍历		执行用时击败100%
+//思路：优先深入左子树, 判断左节点与父节点的value大小关系, 然后再去右子树
+//时间复杂度O(n) 深度优先遍历每个节点, 且仅遍历一遍
+//空间复杂度O(n)
 class Solution {
     public boolean isValidBST(TreeNode root) {
         return helper(root, Long.MAX_VALUE, Long.MIN_VALUE);
@@ -19,22 +17,55 @@ class Solution {
 }
 
 
-//解法2：中序遍历观察是否有序
+//解法2：广度优先遍历		执行用时击败约30%
+//思路：用队列保存节点的信息, 逐层验证
+//时间复杂度O(n)
+//空间复杂度O(n)
+class Solution {
+    Queue<TreeNode> queue = new LinkedList();
+    Queue<Integer> uppers = new LinkedList();
+    Queue<Integer> lowers = new LinkedList();
+
+    public void update(TreeNode root, Integer lower, Integer upper) {
+        queue.add(root);
+        lowers.add(lower);
+        uppers.add(upper);
+    }
+
+    public boolean isValidBST(TreeNode root) {
+        Integer lower = null, upper = null;
+        update(root, lower, upper);
+        while (!queue.isEmpty()) {
+            root = queue.poll();
+            lower = lowers.poll();
+            upper = uppers.poll();
+            if (root != null) {
+                if (lower != null && root.val <= lower) return false;
+                if (upper != null && root.val >= upper) return false;
+                update(root.left, lower, root.val);
+                update(root.right, root.val, upper);
+            }
+        }
+        return true;
+    }
+}
+
+//解法3：中序遍历观察是否有序	执行用时击败约40%
 //思路：基于二叉树中序遍历为从小到大的特性,每当进行一次中序遍历时,就与上一个节点的val值比较
 //时间复杂度O(n)
 //空间复杂度O(n)
 //总结：活用辅助栈完成迭代式中序遍历
 public boolean isValidBST(TreeNode root) {
 	Stack<TreeNode> stack = new Stack<>();
-	double inorder = -Double.MAX_VALUE;
+	TreeNode prev = null;
 	while (!stack.isEmpty() || root != null) {
-		while (root != null) {
+		while(root != null) {
 			stack.push(root);
-			root = root.left;    
+			root = root.left;
 		}
 		root = stack.pop();
-		if (root.val <= inorder) return false;
-		inorder = root.val;
+		if (prev != null && root.val <= prev.val) return false;
+		prev = root;
 		root = root.right;
 	}
 	return true;

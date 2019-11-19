@@ -1,6 +1,6 @@
 //144 二叉树前序遍历
 
-//1. 递归解法
+//1. 递归解法		执行用时击败100%
 //时间复杂度O(n)
 class Solution {
     List<Integer> arraylist = new ArrayList<>();
@@ -14,22 +14,22 @@ class Solution {
     }
 }
 
-//2. 辅助栈迭代
-//时间复杂度O(n),参考了中序遍历的辅助栈迭代写法，调整了下执行顺序就通过了
+//2. 辅助栈迭代		执行用时击败93%
+//时间复杂度O(n)
 class Solution {
-    List<Integer> arraylist = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
     public List<Integer> preorderTraversal(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode current = root;
-        while (current != null || !stack.isEmpty()) {
-            while (current != null) {
-                arraylist.add(current.val);
-                stack.push(current);
-                current = current.left;
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                list.add(root.val);
+                root = root.left;
             }
-            current = stack.pop();
-            current = current.right;
+            TreeNode curr = stack.pop();
+            root = curr.right;
         }
-        return arraylist;
+        return list;
     }
 }
