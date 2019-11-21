@@ -60,7 +60,7 @@ public class LeetCode_200_693 {
             while (parent[i] != i) {
                 i = parent[i];
             }
-            //路径压缩 （好像和下面重复了）
+            //路径压缩 （这种压缩方案比下面的那种更优）
             while (root != i) {
                 int t = parent[root];
                 parent[root] = i;
@@ -73,6 +73,7 @@ public class LeetCode_200_693 {
             int iSet = find(i);
             int jSet = find(j);
             if (iSet != jSet) {
+                //使用rank进行路径压缩，没有上面的那种好，
                 if (rank[iSet] > rank[jSet]) {
                     parent[jSet] = iSet;
                 } else if (rank[iSet] < rank[jSet]) {
