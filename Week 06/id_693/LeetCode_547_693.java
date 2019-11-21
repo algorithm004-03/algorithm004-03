@@ -54,8 +54,15 @@ public class LeetCode_547_693 {
         }
 
         private int find(int[] parent,int i) {
+            int temp = i;
             while (parent[i] != -1) {
                 i = parent[i];
+            }
+            //路径压缩
+            while (temp != i) {
+                int t = parent[temp];
+                parent[temp] = i;
+                temp = t;
             }
             return i;
         }
@@ -67,5 +74,7 @@ public class LeetCode_547_693 {
                 parent[xSet] = ySet;
             }
         }
+
+
     }
 }
