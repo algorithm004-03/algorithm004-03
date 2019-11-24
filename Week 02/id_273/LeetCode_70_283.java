@@ -10,49 +10,58 @@
 //解法1：斐波那契数列递归
 //思路：...
 //时间复杂度O(2^n)
-//总结：提交未通过,该方式也不必考虑了,且面试遇到斐波那契千万不能采用该递归方式 
 public static int climbStairs(int n) {
-		if (n <= 2) {
-			return n;
-		}
+		if (n <= 2) return n;
 		return climbStairs(n-1) + climbStairs(n-2);
 }
 
-//解法2：动态规划
-//思路：寻找重复子问题,N1=1,N2=2,N3=N1+N2,N4=N3+N2...,可以将计算过程转换为数组迭代
-//		但目前还并不了解什么是动态规划...
-//时间复杂度O(n)
-//总结：观察重复子问题
-public int climbStairs(int n) {
-	if (n == 0) return 0;
-	if (n == 1) return 1;
-	if (n == 2) return 2;
-	int[] temp = new int[n];
-	temp[0] = 1;
-	temp[1] = 2;
-	
-	for (int i = 2; i<n; i++) {
-		temp[i] = temp[i-1] + temp[i-2];
-	}
-	return temp[n-1];
-}
-
-//解法3：记忆化递归
-//思路：把每一次递归的值在数组中缓存，最后返回数组中的第一个数即是结果
+//解法2：记忆化递归		执行用时：0ms
+//思路：创建一个缓存数组用于存储每一次递归的结果, 避免了不必要的重复计算
 //时间复杂度O(n)
 //空间复杂度O(n)
-//总结：递归的优化手段也可以通过缓存...还是动态规划比较好理解,简单快速 
 class Solution {
-    public static int climbStairs(int n) {
-        int temp[] = new int[n-1];
-        return climb(n, n, temp);
+    public int climbStairs(int n) {
+        if (n <= 2) return n;
+        int[] temp = new int[n - 2];
+        return recur(n, n, temp);
     }
 
-    private static int climb(int k, int n, int temp[]) {
-        if (k == 0) return 1;
-        if (k == 1) return 1;
-        if (temp[n-k] > 0) return temp[n-k];
-        temp[n-k] = climb(k-1, n, temp) + climb(k-2, n, temp);
-        return temp[n-k];
+    private int recur(int n, int k, int[] temp) {
+        if (k == 1 || k == 2) return k;
+        else if (temp[n - k] != 0) return temp[n - k];
+        else return temp[n - k] = recur(n, k - 1, temp) + recur(n, k - 2, temp);
     }
 }
+
+//解法3：动态规划（一维数组版）		执行用时：0ms
+//思路：可以根据重复子问题能够推导出动态规划的状态方程 dp[n] = dp[n - 1] + dp[n - 2], 有了状态方程, 动态规划就会非常简单
+//		只需要将每一级台阶要跨的步数采用数组存储, 下一次计算时从数组中获取即可
+//时间复杂度O(n)
+//空间复杂度O(n)
+public int climbStairs(int n) {
+	if (n <= 2) return n;
+	int[] dp = new int[n];
+	dp[0] = 1;
+	dp[1] = 2;
+	for (int i = 2; i < n; i++) {
+		dp[i] = dp[i - 1] + dp[i - 2];
+	}
+	return dp[n - 1];
+}
+
+//解法2.1 动态规划（变量暂存版）		执行用时：0ms
+//思路：由于动态规划方法每次都只需要操作三个变量, 因此将数组赋值操作简化为变量之间的赋值操作
+//时间复杂度O(n)
+//空间复杂度O(1)
+public int climbStairs(int n) {
+	if (n <= 2) return n; 
+	int temp = 2, prev = 1, curr = 0;
+	for (int i = 3; i <= n; i++) {
+		curr = prev + temp;
+		prev = temp;
+		temp = curr;
+	}
+	return curr;
+}
+
+
