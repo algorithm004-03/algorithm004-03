@@ -1,6 +1,12 @@
 //36. 有效数独
 
 //解法1：遍历	执行用时：2ms
+//思路：遍历二维矩阵, 对每一个节点进行判断：
+//		1. 同一列下是否存在相同字符
+//		2. 同一行下是否存在相同字符
+//		3. 所在3x3矩阵中是否存在相同字符
+//时间复杂度：O(n^2 * 9)
+//空间复杂度：O(1)
 public boolean isValidSudoku(char[][] board) {
 	for (int i = 0; i < board.length; i++) {
 		for (int j = 0; j < board.length; j++) {
