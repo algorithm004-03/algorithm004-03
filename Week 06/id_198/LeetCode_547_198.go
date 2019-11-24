@@ -1,19 +1,37 @@
 package leetcode
 
-func find(parents []int, i int) int {
-	if parents[i] != i {
+import "fmt"
 
-		parents[i] = find(parents, parents[i])
-	}
-
-	return parents[i]
+type UF struct {
+	parent []int
+	count  int
 }
 
-func union(parents []int, x, y int) {
-	xs := find(parents, x)
-	ys := find(parents, y)
-	if xs != ys {
-		parents[ys] = xs
+func NewUF(n int) *UF {
+
+	uf := &UF{parent: make([]int, n), count: n}
+	for i := 0; i < n; i++ {
+
+		uf.parent[i] = i
+	}
+	return uf
+}
+
+func (uf *UF) find(i int) int {
+	if uf.parent[i] != i {
+
+		uf.parent[i] = uf.find(uf.parent[i])
+	}
+	return uf.parent[i]
+}
+
+func (uf *UF) union(i, j int) {
+	x := uf.find(i)
+	y := uf.find(j)
+	if x != y {
+		uf.parent[x] = y
+		uf.count = uf.count - 1
+		fmt.Println(uf.count)
 	}
 }
 func findCircleNum(M [][]int) int {
@@ -23,21 +41,13 @@ func findCircleNum(M [][]int) int {
 		return 0
 	}
 	l := len(M)
-	parents := make([]int, l)
+	uf := NewUF(l)
 	for i := 0; i < l; i++ {
-		parents[i] = i
 		for j := 0; j < l; j++ {
 			if M[i][j] == 1 && i != j {
-				union(parents, i, j)
+				uf.union(i, j)
 			}
 		}
 	}
-	count := 0
-	for i := 0; i < l; i++ {
-		if parents[i] == i {
-
-			count++
-		}
-	}
-	return count
+	return uf.count
 }
