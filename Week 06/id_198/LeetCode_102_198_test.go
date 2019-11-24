@@ -24,7 +24,8 @@ func TestConstructor(t *testing.T) {
 func TestTrie_Insert(t *testing.T) {
 	type fields struct {
 		val      rune
-		children []*Trie
+		isEnd    bool
+		children []Trie
 	}
 	type args struct {
 		word string
@@ -40,6 +41,7 @@ func TestTrie_Insert(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			this := &Trie{
 				val:      tt.fields.val,
+				isEnd:    tt.fields.isEnd,
 				children: tt.fields.children,
 			}
 			this.Insert(tt.args.word)
@@ -50,7 +52,8 @@ func TestTrie_Insert(t *testing.T) {
 func TestTrie_Search(t *testing.T) {
 	type fields struct {
 		val      rune
-		children []*Trie
+		isEnd    bool
+		children []Trie
 	}
 	type args struct {
 		word string
@@ -67,6 +70,7 @@ func TestTrie_Search(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			this := &Trie{
 				val:      tt.fields.val,
+				isEnd:    tt.fields.isEnd,
 				children: tt.fields.children,
 			}
 			if got := this.Search(tt.args.word); got != tt.want {
@@ -79,7 +83,8 @@ func TestTrie_Search(t *testing.T) {
 func TestTrie_StartsWith(t *testing.T) {
 	type fields struct {
 		val      rune
-		children []*Trie
+		isEnd    bool
+		children []Trie
 	}
 	type args struct {
 		prefix string
@@ -96,6 +101,7 @@ func TestTrie_StartsWith(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			this := &Trie{
 				val:      tt.fields.val,
+				isEnd:    tt.fields.isEnd,
 				children: tt.fields.children,
 			}
 			if got := this.StartsWith(tt.args.prefix); got != tt.want {
