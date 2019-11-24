@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 type UF struct {
 	parent []int
 	count  int
@@ -31,7 +29,6 @@ func (uf *UF) union(i, j int) {
 	if x != y {
 		uf.parent[x] = y
 		uf.count = uf.count - 1
-		fmt.Println(uf.count)
 	}
 }
 func findCircleNum(M [][]int) int {
