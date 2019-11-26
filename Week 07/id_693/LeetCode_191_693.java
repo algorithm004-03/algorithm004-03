@@ -6,9 +6,11 @@ package id_693;
  * @Date 2019/11/26
  */
 public class LeetCode_191_693 {
+    /**
+     * 位运算1 ：(x >> n) & 1    获取x的n位的值（0或1）
+     */
     public class Solution {
         // you need to treat n as an unsigned value
-        //暴力位运算：(x >> n) & 1    获取x的n位的值（0或1）
         public int hammingWeight(int n) {
             int count = 0;
             for (int i = 1; i <= 32; i++) {
@@ -21,7 +23,9 @@ public class LeetCode_191_693 {
 
     }
 
-    //位运算 ：n & (n - 1)  清零最低位的1
+    /**
+     * 位运算2 ：n & (n - 1)  清零最低位的1
+     */
     public class Solution2 {
         // you need to treat n as an unsigned value
         public int hammingWeight(int n) {
