@@ -50,7 +50,7 @@ public class LeetCode_773_693 {
         private String boardToStr(int[][] board) {
             StringBuilder str = new StringBuilder();
             for (int i = 0; i < board.length; i++) {
-                for (int j = 0; j < board[i].length; i++) {
+                for (int j = 0; j < board[i].length; j++) {
                     str.append(board[i][j]);
                 }
             }
