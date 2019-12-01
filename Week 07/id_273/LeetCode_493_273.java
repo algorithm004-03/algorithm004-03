@@ -26,16 +26,22 @@ public int reversePairs(int[] nums) {
 private int mergeSort(int[] nums, int left, int right) {
 	if (left >= right) return 0;
 	int[] temp = new int[right - left + 1];
-	int mid = left + (right - left)/2;
+	int mid = left + ((right - left) >> 1);
 	int count = mergeSort(nums, left, mid) + mergeSort(nums, mid + 1, right);
-	int i = left, j = left, k = 0;
-	for (int m = mid + 1; m <= right; m++, k++) {
-		while (i <= mid && nums[i]/2.0 <= nums[m]) i++;
-		while (j <= mid && nums[j] <= nums[m]) temp[k++] = nums[j++];
-		temp[k] = nums[m];
-		count += mid + 1 - i;
+	int reverseIdx = left, i = left, k = 0;
+	for (int j = mid + 1; j <= right; j++) {
+		while (reverseIdx <= mid && nums[reverseIdx]/2.0 <= nums[j]) {
+			reverseIdx++;
+		}
+		while (i <= mid && nums[i] <= nums[j] ) {
+			temp[k++] = nums[i++];
+		}
+		count += mid + 1 - reverseIdx;
+		temp[k++] = nums[j];
 	}
-	while (j <= mid) temp[k++] = nums[j++];
+	while (i <= mid) {
+		temp[k++] = nums[i++];
+	}
 	System.arraycopy(temp, 0, nums, left, temp.length);
 	return count;
 }
