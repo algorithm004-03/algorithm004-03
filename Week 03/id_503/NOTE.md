@@ -11,6 +11,10 @@
 	
 	function dsf(node, visited) {
 	
+		if (!root) { // 结束条件
+	        return;
+	    }
+
 	    if (visited.has(node)) { // 已经访问过，不做处理
 	        return
 	    }
@@ -28,7 +32,7 @@
 	```javascript
 	function dsf(root) {
 	
-	    if (!root) { // 结束条件
+	    if (!root) {
 	        return;
 	    }
 	
@@ -60,7 +64,7 @@
 	```javascript
 	function bsf(root) {
 	
-	    if (!root) { // 结束条件
+	    if (!root) {
 	        return;
 	    }
 	
@@ -86,16 +90,16 @@
 	```javascript
 	function bsf(root) {
 	
-	    if (!root) { // 结束条件
+	    if (!root) {
 	        return;
 	    }
 	
 	    const visited = new Set(); // 记录已经访问过的节点
 	    let queue = [root] // 借助队列进行处理节点逻辑
-	    let nextQueue = []; // 下一次队列
-	
+	    
 	    while (queue.length) {
 	
+			let nextQueue = []; // 下一次队列
 	        for (let node of queue) { // 出队处理
 	            visited.add(node);
 	
@@ -103,11 +107,13 @@
 	            process(node)
 	
 	            // 生成相关子节点，并过滤掉已经访问过的节点
-	            nextQueue = generateChildNodes(node, visited);
-	
-	            // 作为下一次队列中进行出队处理
-	            queue = nextQueue;
+	            const subNodes = generateChildNodes(node, visited);
+
+				nextQueue = nextQueue.concat(subNodes);
 	        }
+
+			// 作为下一次队列中进行出队处理
+	        queue = nextQueue;
 	    }
 	}
 	```
@@ -130,7 +136,7 @@
 # 二分查找（Binary Search）
 * 前提
 	* 目标函数单调性（单调递增或者递减）
-	* 存在上下界（bounded
+	* 存在上下界（bounded）
 	* 能够通过索引访问（index accessible)
 * 时间复杂度是 O(logn)
 * 代码模板
@@ -140,7 +146,7 @@
 	    let left = 0;
 	    let right = data.length - 1;
 	
-	    //找中间值，比较目标值，判断左变查找还是右查找
+	    //找中间值，比较目标值，判断左查找还是右查找
 	    while (left <= right) {
 	        let mid = Math.floor((left + right) / 2);
 	        if (data[mid] == target) {

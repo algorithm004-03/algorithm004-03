@@ -1,6 +1,5 @@
 // 使用二分查找寻找半有序数组的偏移量
 
-
 //思路：left = 0 , right = length - 1, mid = (left + right)/2, 观察arr[mid]是否大于arr[right]
 //		若大于说明序列在mid之后的位置进行了旋转, mid+1位置可能是偏移点, 也可能是mid+i
 //			此时left = mid + 1, 折半继续查找
@@ -12,7 +11,7 @@ public void findOffSet(int nums []) {
 	int left = 0;
 	int right = nums.length - 1;
 	while (left < right) {
-		int mid = (left + right)/2;
+		int mid = (left + right) >> 1;
 		if (nums[mid] > nums[right]) left = mid + 1;
 		else right = mid;
 	}
