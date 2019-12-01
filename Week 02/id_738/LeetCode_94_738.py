@@ -36,3 +36,22 @@ class Solution(object):
             self.result.append(ele.val)
             e = ele.right
         return self.result
+
+        #迭代2：使用visited来存储已经访问过left的节点，防止无限循环访问某个节点的left
+        if not root: return []
+        stack = [root]
+        result = []
+        visited = set()
+        while stack:
+            if stack[-1] not in visited:
+                e = stack[-1]
+                visited.add(e)
+                while e.left:
+                    e = e.left
+                    stack.append(e)
+                    visited.add(e)
+            top = stack.pop()
+            result.append(top.val)
+            if top.right:
+                stack.append(top.right)
+        return result
