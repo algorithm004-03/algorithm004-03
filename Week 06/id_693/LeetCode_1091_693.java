@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class LeetCode_1091_693 {
     /*
-        1、DP解法  82 / 84 个通过测试用例   (因为只考虑了4个方向，方向没考虑齐全）
+        1、DP解法  82 / 84 个通过测试用例   (因为只考虑了4个方向，方向没考虑齐全） TODO
         分解子问题：如果是0  j=n: f(i,j) = min(f(i - 1,j),f(j,j - 1),f(i - 1,j - 1)) + 1
                              j!=n：f(i,j) = min(f(i - 1,j),f(j,j - 1),f(i - 1,j + 1),f(i - 1,j - 1)) + 1
                     否则是max  （大于100 * 100） 题目说了长度最大为100
@@ -124,7 +124,7 @@ public class LeetCode_1091_693 {
             int path = 1;
             while (!deque.isEmpty()) {
                 int size = deque.size();
-                for (int i = 0; i < size; i++) {
+                while (--size >= 0) {
                     int[] temp = deque.pop();
                     int x = temp[0];
                     int y = temp[1];
@@ -149,7 +149,7 @@ public class LeetCode_1091_693 {
     }
 
     /*
-        3、A*(启发式搜索)解法
+        3、A*(启发式搜索)解法 TODO
      */
 
     class Solution3 {
