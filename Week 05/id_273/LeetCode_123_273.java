@@ -1,29 +1,57 @@
 //123. 买卖股票的最佳时机III
 
-//股票问题统一分析：
-//1. 穷举所有的"状态"
-//		每天都可以有三种选择分别是：买入buy, 卖出sell, 无操作rest
-//			买入必须在卖出之后, 因为题目限制只能完成一次交易后才能开始第二次交易
-//			卖出必须在买入之后, 因为卖出的前提是要持有股票
-//			无操作可以在买入后继续保持持有股票, 也可以在卖出后继续保持不持有股票
-
-//		那么可以通过一个三维数组存放这几种状态的全部组合：DP[i][k][0 or 1]
-//			语义为：当前为第i天,还能再进行k次交易,当前未持有/持有股票
-//			最后要求的结果则是：DP[n - 1][0][0]
-//			即：最后一天, 不能再进行交易, 且手上没持有股票
-
-//2. 状态转移方程：
-//		那么统一的状态转移方程就可以确定如下：
-//			1. DP[i][k][0] = max(DP[i - 1][k][0], DP[i - 1][k][1] + prices[i])
-//				即：第i天未持有股票, 那么可以从中择优：i - 1天也未持有股票, 第i天继续保持未持有; i - 1天持有股票, 第i天抛售股票完成一次交易
-//			2. DP[i][k][1] = max(DP[i - 1][k][1], DP[i - 1][k - 1][0] - prices[i])
-//				即：第i天持有股票, 那么可以从中择优：i - 1天持有股票, 第i天继续保持持有; i - 1天未持有股票, 进行一次交易k - 1, 买入一支股票
-//		BaseCase：
-//			DP[i][0][0] = 0 ：因为可交易次数为0, 不允许进行买入操作, 因此利润一定是0
-
-//3. 当前问题分析
+//当前问题分析
 //		对于当前题目的要求, K = 2, 也就是这几天内只能进行2笔交易, 而由于K = 2, 此时无法消除k的影响, 所以必须对交易次数K也进行穷举：
 //			for (int k = 2; k >= 1; k--) {
 //				DP[i][k][0] = max(DP[i - 1][k][0], DP[i - 1][k][1] + prices[i])
 //				DP[i][k][1] = max(DP[i - 1][k][1], DP[i - 1][k - 1][0] - prices[i])
 //			}
+
+//解法1：三维DP		执行用时：6ms
+public int maxProfit(int[] prices) {
+	int[][][] dp = new int[prices.length][3][2];
+	for (int i = 0; i < prices.length; i++) {
+		for (int k = 2; k >= 1; k--) {
+			if (i - 1 == -1) {
+				dp[i][k][0] = 0;
+				dp[i][k][1] = -prices[i];
+				continue;
+			}
+			dp[i][k][0] = Math.max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i]);
+			dp[i][k][1] = Math.max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i]);
+		}
+	}
+	return dp[prices.length - 1][2][0];
+}
+
+//解法2：状态压缩		执行用时：5ms
+public int maxProfit(int[] prices) {
+	if (prices.length == 0 || prices == null) return 0;
+	int[][] dp = new int[3][2];
+	for (int i = 0; i < prices.length; i++) {
+		for (int k = 2; k >= 1; k--) {
+			if (i == 0) {
+				dp[k][0] = 0;
+				dp[k][1] = -prices[i];
+				continue;
+			}
+			dp[k][0] = Math.max(dp[k][0], dp[k][1] + prices[i]);
+			dp[k][1] = Math.max(dp[k][1], dp[k - 1][0] - prices[i]);
+		}
+	}
+	return dp[2][0];
+}
+
+//解法3：一维		执行用时：3ms
+public int maxProfit(int[] prices) {
+	if (prices.length == 0 || prices == null) return 0;
+	int dp_10 = 0, dp_11 = -prices[0];
+	int dp_20 = 0, dp_21 = -prices[0];
+	for (int i = 1; i < prices.length; i++) {
+		dp_20 = Math.max(dp_20, dp_21 + prices[i]);
+		dp_21 = Math.max(dp_21, dp_10 - prices[i]);
+		dp_10 = Math.max(dp_10, dp_11 + prices[i]);
+		dp_11 = Math.max(dp_11, -prices[i]);
+	}
+	return dp_20;
+}
