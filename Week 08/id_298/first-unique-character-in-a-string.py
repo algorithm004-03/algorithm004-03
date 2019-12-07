@@ -14,7 +14,4 @@ class Solution:
         if temp_dict[ch] == 1:
           result = idx
           break
-      if result is None:
-        return -1
-      else:
-        return result
+      return -1 if result is None else result
