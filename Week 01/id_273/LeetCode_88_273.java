@@ -9,18 +9,18 @@ public void merge(int[] nums1, int m, int[] nums2, int n) {
 	Arrays.sort(nums1);
 }
 
-//解法2：双指针		执行用时击败约100%
-//思路：双指针p1,p2分别指向两个数组的最后一个元素,设置p指针指向插入的位置,因为两个数组有序,p1和p2当前指向的都是数组中的最大元素,
-//		比较大小,较大的放入p指针对应的位置即可
-//		若p1指针先走完, p2指针还走完, 则p2指针剩下的部分一定是小于nums1的, 那么直接将该部分覆盖到nums1即可
+//解法2：双指针		执行用时：0ms
+//思路：可以参考归并排序的merge操作, 
+//		优化代码：在第一次nums1赋值结束后, 若i指针先指向0, 那么j指针剩下的部分可以直接覆盖掉nums1
+//								 		   若j指针先指向0, 那么i指针剩下的部分就是原本nums1的部分, 不用再操作
 //时间复杂度O(n+m)
 //空间复杂度O(1)
 public void merge(int[] nums1, int m, int[] nums2, int n) {
-	int p1 = m - 1;
-	int p2 = n - 1;
-	int p = m + n - 1;
-	while (p1 >= 0 && p2 >= 0) {
-		nums1[p--] = nums1[p1] > nums2[p2] ? nums1[p1--] : nums2[p2--];
+	int i = m - 1; int j = n - 1; int k = nums1.length - 1;
+	while (i >= 0 && j >= 0) {
+		nums1[k--] = (nums1[i] > nums2[j] ? nums1[i--] : nums2[j--]);
 	}
-	System.arraycopy(nums2, 0, nums1, 0, p2 + 1);
+	// while (i >= 0) nums1[k--] = nums1[i--];
+	// while (j >= 0) nums1[k--] = nums2[j--];
+	System.arraycopy(nums2, 0, nums1, 0, j + 1);
 }
