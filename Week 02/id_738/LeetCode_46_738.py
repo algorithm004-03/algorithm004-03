@@ -22,3 +22,17 @@ class Solution(object):
         size = len(nums)
         bulid()
         return self.result
+
+        #写法2
+        def dfs(l, val):
+            l.append(val)
+            if len(l) == len(nums):
+                self.result.append(l)
+                return 
+            for num in nums:
+                if num not in l:
+                    dfs(l[:], num)
+        self.result = []
+        for num in nums:
+            dfs([], num)
+        return self.result

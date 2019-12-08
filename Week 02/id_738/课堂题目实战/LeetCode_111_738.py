@@ -31,18 +31,36 @@ class Solution(object):
         #迭代:不必对整棵树扫描，只需要扫描最近层的叶子节点的层数即是最小层。
         #所以用广度优先遍历，一层一层往下遍历。
         #数据结构用双端队列，本层节点放在队列左端，子节点往队列右端入队列，这样就会先扫描完本层节点再扫描下层节点了
-        if not root:
-            return 0
-        from collections import deque
-        queue = deque([(root, 1)])
+        # if not root:
+        #     return 0
+        # from collections import deque
+        # queue = deque([(root, 1)])
+        # while queue:
+        #     node, node_level = queue.popleft()
+        #     if not node.left and not node.right:
+        #         return node_level
+        #     if node.left:
+        #         queue.append((node.left, node_level + 1))
+        #     if node.right:
+        #         queue.append((node.right, node_level + 1))
+
+        #迭代2：
+        if not root: return 0
+        queue = [root]
+        level = 1
         while queue:
-            node, node_level = queue.popleft()
-            if not node.left and not node.right:
-                return node_level
-            if node.left:
-                queue.append((node.left, node_level + 1))
-            if node.right:
-                queue.append((node.right, node_level + 1))
+            v = []
+            while queue:
+                cur = queue.pop(0)
+                if not cur.left and not cur.right:
+                    return level
+                v.append(cur)
+            level += 1
+            for cur in v:
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
             
         
         
