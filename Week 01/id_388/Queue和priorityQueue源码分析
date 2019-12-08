@@ -1,0 +1,26 @@
+### queue源码解析
+[源码地址](http://fuseyism.com/classpath/doc/java/util/Queue-source.html)
+
+### queue是一个队列的接口定义，按照先入先出的方式操作元素。
+
+#### 添加操作
+add 和 offser。两者都会把元素插入队列，但是如果空间不足,add会抛出异常，offer只返回false
+
+#### 删除操作
+remove 和 poll。都是移除并返回队首的元素。remove失败会抛出异常，poll会返回null
+
+#### 检查操作
+element 和 peek。两者都是返回队首的元素，但是队列为空 peek会返回nil,element会抛出空队列异常。
+
+### PriorityQueue 源码解析
+PriorityQueue实现了queue接口的方法。有Object存储元素，size表示元素个数，modCount表示修改次数，comparator比较先后元素的方法。
+
+#### 添加操作
+add 和 offer。add直接调用的offer,因此只看offer就可以。如果添加的元素为空会抛异常。如果空间不足会调用grow方法扩容。小于64扩容两倍，否则扩容50%。
+扩容采用的是复制数组的方法。插入的时候如果新元素大于队首的元素则直接插入，否则大于他的元素迁移，新元素往后放，直到大于剩下的元素。修改次数和元素个数同时加一
+
+#### 删除
+remove 和 poll。remove调用的poll接口。删除操作会将队首元素删除其他元素往按照大小填充队首。修改次数和元素个数减一。
+
+#### 检查
+peek和element。返回数组0位置的元素。空的时候element会抛异常
