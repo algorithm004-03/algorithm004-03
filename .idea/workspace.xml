@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f7b82061-c8d3-40e2-a19a-43769dcb86d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Week 08/id_388/LeeCode_388_10.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week 08/id_388/LeeCode_388_115.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week 08/id_388/LeeCode_388_14.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week 08/id_388/LeeCode_388_32.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week 08/id_388/LeeCode_388_44.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week 08/id_388/LeeCode_388_45.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week 08/id_388/LeeCode_388_49.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week 08/id_388/LeeCode_388_8.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week 08/id_388/LeeCode_388_85.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week 08/id_388/LeeCode_388_91.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week 08/id_388/NOTE.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week 08/id_388/NOTE.md" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1SQW4d9VCdi4azbuiXoqSDj2IHn" />
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="Lombok plugin" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7b82061-c8d3-40e2-a19a-43769dcb86d1" name="Default Changelist" comment="" />
+      <created>1571496109469</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571496109469</updated>
+      <workItem from="1571496110725" duration="2463000" />
+      <workItem from="1571749678788" duration="929000" />
+      <workItem from="1572144659684" duration="110000" />
+      <workItem from="1572144781765" duration="2301000" />
+      <workItem from="1572704200361" duration="2087000" />
+      <workItem from="1574583355652" duration="79000" />
+      <workItem from="1574583442325" duration="49000" />
+      <workItem from="1574583516613" duration="1600000" />
+      <workItem from="1575196024387" duration="1943000" />
+      <workItem from="1575793604815" duration="190000" />
+      <workItem from="1575793802520" duration="12000" />
+      <workItem from="1575793820283" duration="1289000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
