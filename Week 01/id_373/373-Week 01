@@ -1,0 +1,148 @@
+//1
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+    if(0 == nums.size())
+	    return 0;
+		
+	int i = 0;
+	for(int j = 0; j < nums.size(); ++j)
+	{
+		if(nums[j] != nums[i])
+		{
+			i++;
+			nums[i] = nums[j];
+		}
+	}
+    
+	return i + 1;
+        
+    }
+};
+
+//2
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+	k = k % nums.size();
+	int count = 0;
+	for(int i = 0; count < nums.size(); i++)
+	{
+		int current = i;
+		int prev = nums[i];
+		do 
+		{
+			int next = (current + k) % nums.size();
+			int temp = nums[next];
+			nums[next] = prev;
+			prev = temp;
+			current = next;
+			count++;
+		} while(i != current);
+	}
+        
+    }
+};
+
+//3
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        ListNode *prehead = new ListNode(-1);
+	ListNode *prev = prehead;
+	
+	while (l1 != NULL && l2 != NULL) {
+            if (l1->val <= l2->val) {
+                prev->next = l1;
+                l1 = l1->next;
+            } else {
+                prev->next = l2;
+                l2 = l2->next;
+            }
+            prev = prev->next;
+        }
+
+        prev->next = l1 == NULL ? l2 : l1;
+
+        return prehead->next;
+    }
+        
+};
+
+//4
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        for (int i = m - 1, j = n - 1, k = m + n - 1; k >= 0; --k) 
+        {
+			if (j < 0 || i >= 0 && nums1[i] > nums2[j])
+				nums1[k] = nums1[i--];
+			else
+				nums1[k] = nums2[j--];
+		}
+        
+    }
+};
+
+//5
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int i,j;
+        for(i=0;i<nums.size()-1;i++)
+        {
+            for(j=i+1;j<nums.size();j++)
+            {
+                if(nums[i]+nums[j]==target)
+                {
+                   return {i,j};
+                }
+            }
+        }
+        return {i,j};
+    };
+};
+
+//6
+void moveZeroes(vector<int>& nums) {
+    int lastNonZero = 0;
+    
+    for (int i = 0; i < nums.size(); i++)
+	{
+        if (nums[i] != 0) 
+		{
+            nums[lastNonZero++] = nums[i];
+        }
+    }
+    
+    for (int i = lastNonZero; i < nums.size(); i++)
+	{
+        nums[i] = 0;
+    }
+}
+
+//7
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        for (int i = (int)digits.size() - 1; i >= 0; i--) 
+		{
+            if (digits[i] == 9) 
+			{
+                digits[i] = 0;
+            }
+            else
+			{
+                digits[i]++;
+                break;
+            }
+        }
+        if (digits[0] == 0)
+		{
+            digits.push_back(0);
+            digits[0] = 1;
+        }
+        return digits;
+    }
+};
+
