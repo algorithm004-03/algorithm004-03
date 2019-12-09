@@ -1,5 +1,9 @@
 # 极客大学「算法训练营第四期 - 3 班」作业提交仓库
 
+## 讲师课件下载地址
+
+请大家通过该链接查看讲师课件并进行下载：链接:https://pan.baidu.com/s/1uoU_2toXHYw_eQOHMpogfQ  密码:94kd
+
 
 ## 仓库目录结构说明
 
@@ -24,4 +28,4 @@
 
 ## 注意事项
 1. **作业公布地址：** 我们会在置顶的 issue 中公布当周的算法练习题以及其他注意事项。
-2. 如果对 Git 和 GitHub 不太了解，请参考 [Git 官方文档](https://git-scm.com/book/zh/v2) 或者极客时间的[《玩转 Git 三剑客》](https://time.geekbang.org/course/intro/145)视频课程。
+2. 如果对 Git 和 GitHub 不太了解，请参考 [Git 官方文档](https://git-scm.com/book/zh/v2) 或者极客时间的[《玩转 Git 三剑客》](https://time.geekbang.org/course/intro/145)视频课程。从来没用过github的学员看这里的git_quick_guide，或许会对你有帮助奥。https://github.com/algorithm004-01/algorithm004-01/tree/master/Utils
