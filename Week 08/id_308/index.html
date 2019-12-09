@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    var reverseStr = function(s, k) {
+        let temp = [];
+        const len = s.length;
+
+        // if(len < k) return s.split('').reverse().join('');
+
+        for(let i=0;i<len;i+=2*k) {
+            for(let j=0;(j+i<len)&& j<2*k;j++) {
+                if(j<k && (i+k-j-1<len)) temp.push(s[i+k-j-1]);
+                else temp.push(s[i+j]);
+            }
+        }
+
+
+
+        return temp.join('');
+    };
+
+
+    // reverseStr("abcdefg",2);
+
+    var res = reverseStr("abcdefg",8);
+    console.log(res);
+
+
+</script>
+
+</body>
+</html>
