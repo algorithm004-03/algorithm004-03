@@ -1,6 +1,7 @@
-package test1.week4;
+package test1.week5;
 
 public class LeetCode_91_638 {
+
     /**
      * 解码方法
      * @param s
