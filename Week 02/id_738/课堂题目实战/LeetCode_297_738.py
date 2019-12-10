@@ -38,7 +38,6 @@ class Codec:
         #反序列化，也是用递归
         def deser(data):
             d = data.pop(0)
-            print(d)
             if d == 'None':
                 return None
             cur = TreeNode(d)
